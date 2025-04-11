@@ -23,5 +23,9 @@ jobs:
           port: ${{ secrets.WEBSITE_FTP_PORT }}
           protocol: "ftp"
           exclude: |
-            **/.git*
-            **/.github*
+            .git/
+            .github/
+            **/.git
+            **/.github
+            **/.git/**
+            **/.github/**
