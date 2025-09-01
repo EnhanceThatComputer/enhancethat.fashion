@@ -1,0 +1,71 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} — Enhance That</title>
+  <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="{{ '/css/normalize.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/css/components.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/css/enhancethat-dev.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/images/favicon.png' | relative_url }}" rel="icon">
+</head>
+<body>
+  <!-- reuse your navbar from the provided HTML if you want it identical -->
+  <div class="navbar">
+    <div class="container hspread less-margins">
+      <a href="/" class="logo-link w-inline-block"><img src="{{ '/images/logo-enhance-that.svg' | relative_url }}" alt="" class="company-logo-white"><img src="{{ '/images/logo-inverted.svg' | relative_url }}" alt="" class="company-logo-blue"></a>
+      <div class="button-group">
+        <a href="{{ '/' | relative_url }}" class="button-yellow w-button">Home</a>
+        <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" class="button-yellow w-button">Schedule a call</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container shortener-60">
+      <h1 class="heading-style-h1">{{ page.title }}</h1>
+      <p class="text-style-regular text-color-grey-2">
+        {{ page.date | date: "%B %-d, %Y" }}
+        ·
+        {% assign words = content | strip_html | split: " " | size %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+        {{ minutes }} min read
+      </p>
+      {% if page.cover %}
+      <div class="spacing-30"><img src="{{ page.cover | relative_url }}" alt="{{ page.title }}" class="image-inner"></div>
+      {% endif %}
+      <div class="rich-text">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+
+  <!-- reuse your footer -->
+  <section class="footer">
+    <div class="container">
+      <div class="footer-cta">
+        <div class="shortener-60 spacing-50">
+          <h2 class="heading-style-h1 text-align-left">Let’s simplify your journey together.</h2>
+          <div class="button-group">
+            <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" class="button-white w-button">Schedule a call</a>
+            <a href="https://www.linkedin.com/company/enhancethat/?originalSubdomain=nl" target="_blank" class="social-link is-blue w-inline-block"><img src="{{ '/images/linkedin-blue.svg' | relative_url }}" alt="" class="social-icon is-smaller"></a>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <div class="text-style-small text-color-white font-weight-semibold">Enhance That © <span class="current-year">*CURRENT-YEAR*</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
+    });
+  </script>
+</body>
+</html>
