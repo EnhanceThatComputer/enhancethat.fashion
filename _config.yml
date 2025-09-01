@@ -1,0 +1,22 @@
+# _config.yml
+title: Enhance That
+url: https://enhancethat.fashion
+baseurl: ""  # keep empty with custom domain
+
+# Put .md files in /blog and treat them as a proper collection
+collections:
+  blog:
+    output: true
+    permalink: /blog/:slug/
+
+# Default front matter for items in /blog
+defaults:
+  - scope:
+      path: "blog"
+      type: "blog"
+    values:
+      layout: blog_post
+      author: Enhance That
+
+# Optional: make manual excerpts work using <!--more-->
+excerpt_separator: "<!--more-->"
