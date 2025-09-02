@@ -109,28 +109,35 @@ permalink: /blog/
   <section class="section">
     <div class="container">
         <div class="blog-list">
-    {% assign posts = site.blog | sort: "date" | reverse %}
-    {% for post in posts %}
-        <a href="{{ post.url | relative_url }}" class="blog-card">
-        <div class="blog-card-title">{{ post.title }}</div>
-        <div class="blog-card-meta">
-            {{ post.date | date: "%B %Y" }} ·
-            {% assign words = post.content | strip_html | split: " " | size %}
-            {% assign minutes = words | divided_by: 200 %}
-            {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
-            {{ minutes }} min read
+        {% assign pages_in_blog = site.pages
+            | where_exp: "p", "p.path contains '/blog/' and p.name != 'index.html'"
+            | sort: "date" | reverse %}
+
+        {% for p in pages_in_blog %}
+            <a href="{{ p.url | relative_url }}" class="blog-card">
+            <div class="blog-card-title">{{ p.title }}</div>
+            <div class="blog-card-meta">
+                {{ p.date | date: "%B %Y" }} ·
+                {% assign words = p.content | strip_html | split: " " | size %}
+                {% assign minutes = words | divided_by: 200 %}
+                {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+                {{ minutes }} min read
+            </div>
+            <div class="blog-card-desc">
+                {% if p.description %}
+                {{ p.description }}
+                {% else %}
+                {{ p.excerpt | strip_html | truncate: 160 }}
+                {% endif %}
+            </div>
+            <span class="button-yellow w-button" style="margin-top:auto;">Read more</span>
+            </a>
+        {% endfor %}
+
+        {% if pages_in_blog == empty %}
+            <p class="text-style-regular">No posts found in /blog. Add .md files with front matter.</p>
+        {% endif %}
         </div>
-        <div class="blog-card-desc">
-            {% if post.description %}
-            {{ post.description }}
-            {% else %}
-            {{ post.excerpt | strip_html | truncate: 160 }}
-            {% endif %}
-        </div>
-        <span class="button-yellow w-button" style="margin-top:auto;">Read more</span>
-        </a>
-    {% endfor %}
-    </div>
     </div>
   </section>
 
