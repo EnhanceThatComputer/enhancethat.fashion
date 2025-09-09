@@ -912,11 +912,11 @@ blockquote {
 
 .shortener-60 {
   grid-column-gap: 25px;
-  grid-row-gap: 25px;
+  grid-row-gap: 5px;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 60%;
+  width: 40%;
   display: flex;
   position: relative;
 }

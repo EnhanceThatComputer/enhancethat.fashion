@@ -48,6 +48,15 @@
       font-style: italic;
       color: #555;
     }
+    /* Blog post links styling */
+    .rich-text a {
+      color: var(--blue);
+      text-decoration: underline;
+      transition: opacity 0.2s;
+    }
+    .rich-text a:hover {
+      opacity: 0.8;
+    }
     /* Mobile margins for better readability */
     @media (max-width: 768px) {
       .container.shortener-60 {
@@ -59,6 +68,15 @@
       color: var(--blue);
       margin-top: 30px;
       margin-bottom: 15px;
+    }
+    /* Blog subtitle styling */
+    .blog-subtitle {
+      color: var(--blue);
+      font-size: 2rem;
+      font-weight: normal;
+      line-height: 1.4;
+      margin-top: 10px;
+      margin-bottom: 25px;
     }
     /* Cover image styling - full width of content area */
     .blog-cover-image {
@@ -83,7 +101,7 @@
   <!-- reuse your navbar from the provided HTML if you want it identical -->
   <div class="navbar">
     <div class="container hspread less-margins">
-      <a href="/" class="logo-link w-inline-block"><img src="{{ '/images/logo-enhance-that.svg' | relative_url }}" alt="" class="company-logo-white"><img src="{{ '/images/logo-inverted.svg' | relative_url }}" alt="" class="company-logo-blue"></a>
+      <a href="/" class="logo-link w-inline-block"><img src="{{ '/images/ETlogo-black.png' | relative_url }}" alt="" class="company-logo-white"><img src="{{ '/images/logo-inverted.svg' | relative_url }}" alt="" class="company-logo-blue"></a>
       <div class="button-group">
         <a href="{{ '/' | relative_url }}" class="button-yellow w-button">Home</a>
         <a href="{{ '/blog/' | relative_url }}" class="button-yellow w-button">Blog</a>
@@ -95,7 +113,13 @@
   <section class="section">
     <div class="container shortener-60">
       <br>
+      {% if page.cover %}
+      <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}" class="blog-cover-image">
+      {% endif %}
       <h1 class="heading-style-h1">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <h2 class="blog-subtitle">{{ page.subtitle }}</h2>
+      {% endif %}
       
       <p class="text-style-regular text-color-grey-2">
         {{ page.date | date: "%B %-d, %Y" }}
@@ -105,12 +129,23 @@
         {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
         {{ minutes }} min read
       </p>
-      {% if page.cover %}
-      <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}" class="blog-cover-image">
-      {% endif %}
       <div class="rich-text">
         {{ content }}
       </div>
+      
+      <script>
+        // Make all links in blog content open in new tab
+        document.addEventListener('DOMContentLoaded', function() {
+          const blogLinks = document.querySelectorAll('.rich-text a');
+          blogLinks.forEach(link => {
+            // Only add target="_blank" to external links (not internal relative links)
+            if (link.href.startsWith('http') || link.href.startsWith('https://')) {
+              link.setAttribute('target', '_blank');
+              link.setAttribute('rel', 'noopener noreferrer');
+            }
+          });
+        });
+      </script>
     </div>
   </section>
 

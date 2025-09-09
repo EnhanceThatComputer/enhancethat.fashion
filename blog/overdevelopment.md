@@ -1,11 +1,13 @@
 ---
-title: Overdevelopment - From Silent Margin Killer to Fashions Competitive Edge 
+title: Overdevelopment
+subtitle: From Silent Margin Killer to Fashions Competitive Edge 
 date: 2025-09-08
 layout: blog_post
 description: Fashion brands are bleeding money and time through overdevelopment, creating far more products than they ever plan to sell, often wasting millions per year. Brands that embrace integrated digital workflows unlock speed, focus, and creative freedom while cutting costs and staying competitive in a rapidly changing market.
 permalink: /blog/Overdevelopment/
 # Optional: add a cover image
 cover: /images/articles/overdevelopment-cover.jpg
+cover-attribution: Photo by <a href="https://unsplash.com/@charlesetoroma?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Charles Etoroma</a> on <a href="https://unsplash.com/photos/assorted-clothes-lot-on-gray-clothes-racks-k78R0lDxd48?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 ---
 
 It rarely feels dramatic in the moment. It looks like a couple more late nights for the team, another round of protos ordered, stitched, dyed, and shipped “just in case.” Nobody questions it because that’s just how it’s done. Most big brands design and develop far more product than they ever intend to sell. 
@@ -82,48 +84,34 @@ Digital overdevelopment isn’t another project on your roadmap. It’s not abou
  
 
 Don’t treat it as a process improvement.   
-
 Get involved! **It’s a new business model opportunity.**
 
  
 
-This is not efficiency. **It’s survival.**
+#### This is not efficiency. It’s survival.
 
-Margins are shrinking. Material costs are rising. Discounts are eating into revenue. At the same time, competitors are proving that speed and focus are the only ways to win. 
-
- 
-
-This is not about “workflow improvements” or small tweaks to the calendar. This is about whether your brand can still compete three years from now. 
+Margins are shrinking. Material costs are rising. Discounts are eating into revenue. At the same time, competitors are proving that speed and focus are the only ways to win. This is not about “workflow improvements” or small tweaks to the calendar. This is about whether your brand can still compete three years from now. 
 
  
 
-And let’s be honest about leadership. 
+#### And let’s be honest about leadership. 
 
 Most leaders already know this problem exists — they feel it in the numbers, in the margins, in the pace. But too often change stalls in the middle. Layers of management play it safe, hide behind “how we’ve always done it,” and progress dies in the committees. 
 
  
 
-Someone from the top has to drive this hard. Because if you’re waiting for middle management to move first, you’ll be waiting forever. 
-
- 
-
-And if your biggest objection comes down to “but I like how a physical proto feels” — then maybe that’s not the type of person you need on your future team. 
+Someone from the top has to drive this hard. Because if you’re waiting for middle management to move first, you’ll be waiting forever. And if your biggest objection comes down to “but I like how a physical proto feels” — then maybe that’s not the type of person you need on your future team. 
 
  
 
 #### The only question that matters
 
 Are your teams already creating digital images and videos that look convincing?  
-
-Ask yourself: would you buy from them? 
-
- 
+Ask yourself: would you buy from them?
 
 If the answer is yes, then why are you still paying the tax of physical limitations? 
-
- 
-
-If the answer is no, then dig deeper. Do you have the right strategy and skills in place? This is the moment to get the foundation right, because your future will depend on it. 
+If the answer is no, then dig deeper. Do you have the right strategy and skills in place? 
+This is the moment to get the foundation right, because your future will depend on it. 
 
  
 
