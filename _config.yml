@@ -14,5 +14,6 @@ defaults:
     values:
       layout: blog_post
       author: Enhance That
+      permalink: /blog/:basename/
 
 excerpt_separator: "<!--more-->"
