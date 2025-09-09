@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle check:*)",
+      "Bash(cat:*)",
+      "Bash(bundle list:*)",
+      "WebSearch",
+      "Bash(mkdir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
