@@ -4,13 +4,87 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} — Enhance That</title>
+  <title>{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %} | Enhance That</title>
   <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}">
+  <meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="Enhance That">
+  {% if page.cover %}
+  <meta property="og:image" content="{{ page.cover | absolute_url }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ page.title }}">
+  {% else %}
+  <meta property="og:image" content="{{ '/images/Social-share.jpg' | absolute_url }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Enhance That - Simplified and integrated digital design workflow">
+  {% endif %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:author" content="{{ page.author | default: 'Enhance That' }}">
+  <meta property="article:section" content="Technology">
+  <meta property="article:tag" content="Fashion Technology, Digital Workflows, Automation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}">
+  <meta name="twitter:description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  {% if page.cover %}
+  <meta name="twitter:image" content="{{ page.cover | absolute_url }}">
+  {% else %}
+  <meta name="twitter:image" content="{{ '/images/Social-share.jpg' | absolute_url }}">
+  {% endif %}
+  <meta name="twitter:site" content="@enhancethat">
+  <meta name="twitter:creator" content="@enhancethat">
+
+  <!-- Additional SEO -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="{{ page.author | default: 'Enhance That' }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title }}{% if page.subtitle %} - {{ page.subtitle }}{% endif %}",
+    "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}",
+    "image": "{% if page.cover %}{{ page.cover | absolute_url }}{% else %}{{ '/images/Social-share.jpg' | absolute_url }}{% endif %}",
+    "author": {
+      "@type": "Organization",
+      "name": "{{ page.author | default: 'Enhance That' }}",
+      "url": "{{ '/' | absolute_url }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Enhance That",
+      "url": "{{ '/' | absolute_url }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ '/images/logo-enhance-that.svg' | absolute_url }}"
+      }
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    }
+  }
+  </script>
   <link href="{{ '/css/normalize.css' | relative_url }}" rel="stylesheet">
   <link href="{{ '/css/components.css' | relative_url }}" rel="stylesheet">
   <link href="{{ '/css/enhancethat-dev.css' | relative_url }}" rel="stylesheet">
-  <link href="{{ '/images/favicon.png' | relative_url }}" rel="icon">
+  <link href="{{ '/images/favicon.png' | relative_url }}" rel="shortcut icon" type="image/x-icon">
+  <link href="{{ '/images/webclip.png' | relative_url }}" rel="apple-touch-icon">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="df361236-30bc-42e3-b9f4-6582ea43b87e"></script>
   <style>
     /* Override white title color to blue */
     .heading-style-h1 {
