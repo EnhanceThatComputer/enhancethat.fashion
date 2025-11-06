@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Trasix Logo Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: sans-serif;
+        }
+        #animation-container {
+            width: 800px;
+            height: 600px;
+            background: white;
+            margin: 0 auto;
+            border: 2px solid #333;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Trasix Logo Test - Illustration 2</h1>
+
+    <div id="animation-container"></div>
+
+    <div class="controls">
+        <button onclick="animation.play()">Play</button>
+        <button onclick="animation.pause()">Pause</button>
+        <button onclick="animation.stop()">Stop</button>
+        <button onclick="animation.setSpeed(0.5)">0.5x Speed</button>
+        <button onclick="animation.setSpeed(1)">1x Speed</button>
+        <button onclick="animation.setSpeed(2)">2x Speed</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <p id="info">Loading animation...</p>
+    </div>
+
+    <!-- Lottie library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script>
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('animation-container'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'documents/Illustration-2.json'
+        });
+
+        animation.addEventListener('DOMLoaded', function() {
+            document.getElementById('info').innerHTML =
+                'Animation loaded! Total frames: ' + animation.totalFrames +
+                '<br>Look for the trasix logo appearing around frame 5-20';
+        });
+
+        animation.addEventListener('error', function(error) {
+            document.getElementById('info').innerHTML =
+                '<span style="color: red;">Error loading animation: ' + error + '</span>';
+        });
+    </script>
+</body>
+</html>
