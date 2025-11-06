@@ -5,7 +5,9 @@
       "Bash(cat:*)",
       "Bash(bundle list:*)",
       "WebSearch",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(python fix_trasix_logo.py:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
