@@ -1,0 +1,59 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_DB_NAME: wp
+      WP_DEBUG: "true"
+      WP_DEBUG_LOG: "true"
+      WP_ENVIRONMENT_TYPE: "development"
+    volumes:
+      - wordpress:/var/www/html                 # share core+wp-content
+      - ./wp-content:/var/www/html/wp-content   # live-edit your theme
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+  adminer:
+    image: adminer
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8081:8080"
+
+  wpcli:
+    image: wordpress:cli-php8.3
+    depends_on:
+      wordpress:
+        condition: service_started
+    user: "33:33"                   # www-data to match wordpress container
+    working_dir: /var/www/html
+    entrypoint: ["wp"]
+    volumes:
+      - wordpress:/var/www/html     # same files as the wordpress container
+      - ./wp-content:/var/www/html/wp-content
+
+volumes:
+  db_data: {}
+  wordpress: {}
