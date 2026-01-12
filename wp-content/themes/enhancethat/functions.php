@@ -26,6 +26,21 @@ require_once get_template_directory() . '/inc/brands-marquee-helpers.php';
 require_once get_template_directory() . '/inc/customizer-brands-marquee.php';
 
 /**
+ * Include SEO helper functions
+ */
+require_once get_template_directory() . '/inc/seo-helpers.php';
+
+/**
+ * Include SEO customizer settings
+ */
+require_once get_template_directory() . '/inc/customizer-seo.php';
+
+/**
+ * Include SEO meta boxes
+ */
+require_once get_template_directory() . '/inc/meta-boxes-seo.php';
+
+/**
  * Theme Setup
  */
 function enhancethat_setup() {
@@ -172,91 +187,90 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
 /**
- * Add SEO meta tags for blog posts
+ * Remove default WordPress canonical and shortlink (we handle these in SEO function)
+ */
+remove_action('wp_head', 'rel_canonical');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+
+/**
+ * Add SEO meta tags for all page types
  */
 function enhancethat_seo_meta_tags() {
-    if (!is_single()) {
-        return;
-    }
-
-    global $post;
-    $title = get_the_title();
-    $subtitle = enhancethat_get_subtitle();
-    $fullTitle = $title . ($subtitle ? ' - ' . $subtitle : '') . ' | ' . get_bloginfo('name');
-    $description = has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 30);
-    $url = get_permalink();
+    // Get page type and common data
+    $pageType = enhancethat_get_page_type();
+    $postId = get_the_ID();
+    $title = enhancethat_get_seo_title($postId);
+    $description = enhancethat_get_seo_description($postId);
+    $canonicalUrl = enhancethat_get_canonical_url();
+    $imageUrl = enhancethat_get_og_image_url($postId);
     $siteName = get_bloginfo('name');
     $siteUrl = home_url('/');
+    $twitterSite = enhancethat_get_twitter_site();
+    $twitterCreator = enhancethat_get_twitter_creator($postId);
 
-    // Featured image
-    $imageUrl = '';
-    if (has_post_thumbnail()) {
-        $imageUrl = get_the_post_thumbnail_url(get_the_ID(), 'full');
-    } else {
-        $imageUrl = get_template_directory_uri() . '/assets/images/Social-share.jpg';
+    // Determine OG type
+    $ogType = 'website';
+    if ($pageType === 'article') {
+        $ogType = 'article';
     }
 
     ?>
+    <!-- Basic SEO -->
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <?php if (enhancethat_is_noindex($postId)): ?>
+    <meta name="robots" content="noindex, nofollow">
+    <?php else: ?>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <?php endif; ?>
+    <link rel="canonical" href="<?php echo esc_url($canonicalUrl); ?>">
+
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="<?php echo esc_attr($fullTitle); ?>">
+    <meta property="og:type" content="<?php echo esc_attr($ogType); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
     <meta property="og:description" content="<?php echo esc_attr($description); ?>">
-    <meta property="og:url" content="<?php echo esc_url($url); ?>">
+    <meta property="og:url" content="<?php echo esc_url($canonicalUrl); ?>">
     <meta property="og:site_name" content="<?php echo esc_attr($siteName); ?>">
     <meta property="og:image" content="<?php echo esc_url($imageUrl); ?>">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="<?php echo esc_attr($title); ?>">
-    <meta property="article:published_time" content="<?php echo get_the_date('c'); ?>">
-    <meta property="article:author" content="<?php echo esc_attr(get_the_author()); ?>">
-    <meta property="article:section" content="Technology">
-    <meta property="article:tag" content="Fashion Technology, Digital Workflows, Automation">
+    <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
+    <?php if ($pageType === 'article' && $postId): ?>
+    <!-- Article-specific Open Graph -->
+    <meta property="article:published_time" content="<?php echo get_the_date('c', $postId); ?>">
+    <meta property="article:modified_time" content="<?php echo get_the_modified_date('c', $postId); ?>">
+    <meta property="article:author" content="<?php echo esc_attr(get_the_author_meta('display_name', get_post_field('post_author', $postId))); ?>">
+    <meta property="article:section" content="<?php echo esc_attr(enhancethat_get_article_section($postId)); ?>">
+    <meta property="article:tag" content="<?php echo esc_attr(enhancethat_get_article_tags($postId)); ?>">
+    <meta name="author" content="<?php echo esc_attr(get_the_author_meta('display_name', get_post_field('post_author', $postId))); ?>">
+    <?php endif; ?>
+
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<?php echo esc_attr($fullTitle); ?>">
+    <meta name="twitter:title" content="<?php echo esc_attr($title); ?>">
     <meta name="twitter:description" content="<?php echo esc_attr($description); ?>">
     <meta name="twitter:image" content="<?php echo esc_url($imageUrl); ?>">
-    <meta name="twitter:site" content="@enhancethat">
-    <meta name="twitter:creator" content="@enhancethat">
+    <meta name="twitter:site" content="<?php echo esc_attr($twitterSite); ?>">
+    <meta name="twitter:creator" content="<?php echo esc_attr($twitterCreator); ?>">
 
-    <!-- Additional SEO -->
-    <meta name="description" content="<?php echo esc_attr($description); ?>">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="author" content="<?php echo esc_attr(get_the_author()); ?>">
-    <link rel="canonical" href="<?php echo esc_url($url); ?>">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "<?php echo esc_js($fullTitle); ?>",
-      "description": "<?php echo esc_js($description); ?>",
-      "image": "<?php echo esc_url($imageUrl); ?>",
-      "author": {
-        "@type": "Organization",
-        "name": "<?php echo esc_js(get_the_author()); ?>",
-        "url": "<?php echo esc_url($siteUrl); ?>"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "<?php echo esc_js($siteName); ?>",
-        "url": "<?php echo esc_url($siteUrl); ?>",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-enhance-that.svg"
-        }
-      },
-      "datePublished": "<?php echo get_the_date('c'); ?>",
-      "dateModified": "<?php echo get_the_modified_date('c'); ?>",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "<?php echo esc_url($url); ?>"
-      }
-    }
-    </script>
     <?php
+    // Facebook App ID (optional)
+    $fbAppId = get_theme_mod('enhancethat_seo_facebook_app_id', '');
+    if ($fbAppId):
+    ?>
+    <meta property="fb:app_id" content="<?php echo esc_attr($fbAppId); ?>">
+    <?php endif; ?>
+
+    <?php
+    // Output appropriate structured data based on page type
+    if ($pageType === 'homepage') {
+        enhancethat_output_organization_schema();
+    } elseif ($pageType === 'article' && $postId) {
+        enhancethat_output_article_schema($postId);
+    } elseif ($pageType === 'webpage' && $postId) {
+        enhancethat_output_webpage_schema($postId);
+    }
 }
 add_action('wp_head', 'enhancethat_seo_meta_tags');
 
