@@ -1,0 +1,83 @@
+/**
+ * Reset 2026 - Neutralize Webflow Styles
+ *
+ * This file overrides the colorful Webflow-based design elements
+ * from the original theme, preparing for the black/white minimalist aesthetic.
+ */
+
+/* Remove colorful button styles */
+.button-yellow,
+.button-white,
+.button-blue {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Neutralize color-specific classes */
+.text-color-blue,
+.text-color-yellow,
+.text-color-tiffany {
+  color: inherit !important;
+}
+
+.bg-color-blue,
+.bg-color-yellow,
+.bg-color-tiffany,
+.bg-color-sand {
+  background-color: transparent !important;
+}
+
+/* Remove grain texture overlays */
+.grain {
+  display: none !important;
+  background-image: none !important;
+}
+
+/* Remove liquid SVG filter effects */
+.is-liquid {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+#liquidFilter {
+  display: none;
+}
+
+/* Disable Lottie animations */
+[data-animation-type="lottie"] {
+  display: none !important;
+}
+
+/* Remove Webflow default animations */
+.w-inline-block {
+  transform: none !important;
+}
+
+/* Reset section backgrounds */
+.section {
+  background-color: transparent;
+  background-image: none;
+}
+
+/* Simplify links */
+a {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Reset heading colors */
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+}
+
+/* Remove unnecessary spacing from old layout */
+.container-large,
+.container-medium,
+.container-small {
+  max-width: 100%;
+  padding: 0;
+}

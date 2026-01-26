@@ -1,0 +1,774 @@
+/**
+ * EnhanceThat 2026 - Main Stylesheet
+ *
+ * Black and white minimalist theme with scroll-jacking slide animations
+ */
+
+/* ============================================================================
+   1. CSS Custom Properties
+   ========================================================================= */
+
+:root {
+  /* Colors */
+  --black: #1a1a1a;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray-mid: #888888;
+  --gray-dark: #444444;
+
+  /* Accents (minimal use) */
+  --blue: #0066ff;
+  --green: #7ed956;
+
+  /* Typography */
+  --font-sans: 'Innovator Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Domaine', Georgia, serif;
+
+  /* Spacing */
+  --section-padding: 120px;
+  --container-max: 1200px;
+  --nav-height: 80px;
+
+  /* Timing */
+  --transition-smooth: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.3s ease;
+}
+
+/* ============================================================================
+   2. Base & Reset
+   ========================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--black);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ============================================================================
+   3. Typography Scale
+   ========================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 1em;
+  letter-spacing: -0.02em;
+}
+
+.slide-title,
+h1 {
+  font-size: clamp(48px, 8vw, 120px);
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.slide-heading,
+h2 {
+  font-size: clamp(32px, 5vw, 72px);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.slide-subtitle,
+h3 {
+  font-size: clamp(20px, 3vw, 36px);
+  font-weight: 400;
+  margin-bottom: 0.7em;
+}
+
+h4 {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 600;
+}
+
+p {
+  font-size: clamp(16px, 2vw, 24px);
+  line-height: 1.6;
+  margin: 0 0 1.5em;
+}
+
+.text-large {
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1.5;
+}
+
+.text-small {
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   4. Slide System
+   ========================================================================= */
+
+.slide-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding) 40px;
+}
+
+.slide-dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.slide-light {
+  background-color: var(--gray-light);
+  color: var(--black);
+}
+
+.slide-content {
+  max-width: var(--container-max);
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+.slide-inner {
+  max-width: 900px;
+}
+
+.slide-centered {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   5. Navigation
+   ========================================================================= */
+
+.nav-2026 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  transition: background-color var(--transition-fast);
+}
+
+.nav-2026.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav-2026.nav-on-dark {
+  color: var(--white);
+}
+
+.nav-2026.nav-on-dark.nav-scrolled {
+  background-color: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  letter-spacing: -0.01em;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-link:hover {
+  opacity: 0.6;
+}
+
+.nav-cta {
+  padding: 12px 24px;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 4px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.nav-on-dark .nav-cta {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.nav-cta:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ============================================================================
+   6. Lists
+   ========================================================================= */
+
+.slide-list {
+  list-style: none;
+  padding: 0;
+  margin: 2em 0;
+}
+
+.slide-list li {
+  font-size: clamp(18px, 2.5vw, 28px);
+  line-height: 1.5;
+  margin-bottom: 0.7em;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.slide-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+/* Three Column Layout */
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 48px;
+  margin: 3em 0;
+}
+
+.three-column h3 {
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* ============================================================================
+   7. Buttons & CTAs
+   ========================================================================= */
+
+.cta-button {
+  display: inline-block;
+  padding: 20px 48px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 4px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: 2em;
+}
+
+.slide-dark .cta-button {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.slide-light .cta-button {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================================
+   8. Client Logo Marquee
+   ========================================================================= */
+
+.client-marquee {
+  width: 100%;
+  overflow: hidden;
+  margin: 3em 0;
+}
+
+.client-track {
+  display: flex;
+  gap: 60px;
+  animation: marquee 30s linear infinite;
+}
+
+.client-item {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.client-item:hover {
+  opacity: 1;
+}
+
+.client-image {
+  height: 40px;
+  width: auto;
+  filter: grayscale(100%);
+  transition: filter var(--transition-fast);
+}
+
+.slide-dark .client-image {
+  filter: grayscale(100%) brightness(200%);
+}
+
+.client-item:hover .client-image {
+  filter: grayscale(0%);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================================================
+   9. Footer
+   ========================================================================= */
+
+.footer-2026 {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.footer-link {
+  color: var(--white);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-link:hover {
+  opacity: 0.6;
+}
+
+/* ============================================================================
+   10. Blog Styles
+   ========================================================================= */
+
+.blog-section {
+  padding: var(--section-padding) 40px;
+  background-color: var(--gray-light);
+}
+
+.blog-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.blog-title {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  margin-bottom: 2em;
+  color: var(--black);
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 48px;
+}
+
+.blog-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.blog-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 24px;
+}
+
+.blog-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: var(--black);
+}
+
+.blog-card-subtitle {
+  font-size: 16px;
+  color: var(--gray-mid);
+  margin-bottom: 1em;
+}
+
+.blog-card-meta {
+  font-size: 14px;
+  color: var(--gray-mid);
+  margin-bottom: 1em;
+}
+
+.blog-card-excerpt {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-dark);
+  margin-bottom: 1.5em;
+}
+
+.blog-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.blog-card-link:hover {
+  opacity: 0.7;
+}
+
+/* Single Post */
+.single-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--section-padding) 40px;
+}
+
+.post-header {
+  margin-bottom: 3em;
+}
+
+.post-title {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 700;
+  margin-bottom: 0.3em;
+  color: var(--black);
+}
+
+.post-subtitle {
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: var(--gray-mid);
+  margin-bottom: 1em;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: var(--gray-mid);
+  margin-bottom: 2em;
+}
+
+.post-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+.post-cover-attribution {
+  font-size: 12px;
+  color: var(--gray-mid);
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--black);
+}
+
+.post-content h2 {
+  font-size: 32px;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.post-content h3 {
+  font-size: 24px;
+  margin-top: 1.5em;
+  margin-bottom: 0.7em;
+}
+
+.post-content p {
+  margin-bottom: 1.5em;
+}
+
+.post-content a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--black);
+  padding-left: 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+}
+
+/* Post Footer & Tags */
+.post-footer {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid var(--gray-mid);
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.tags-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-mid);
+}
+
+.tag-link {
+  font-size: 14px;
+  padding: 6px 16px;
+  background-color: var(--gray-light);
+  color: var(--black);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.tag-link:hover {
+  background-color: var(--black);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Blog Card Link Wrapper */
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.blog-card-link-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Archive Description */
+.archive-description {
+  max-width: 800px;
+  margin: 0 auto 3em;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--gray-dark);
+  text-align: center;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 4em;
+  text-align: center;
+}
+
+.pagination .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pagination .page-numbers {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  border: 1px solid var(--gray-mid);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pagination .page-numbers:hover,
+.pagination .page-numbers.current {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.pagination .page-numbers.dots {
+  border: none;
+  background: none;
+  color: var(--gray-mid);
+}
+
+.pagination .page-numbers.dots:hover {
+  background: none;
+  color: var(--gray-mid);
+}
+
+/* No posts message */
+.no-posts {
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.no-posts p {
+  font-size: 18px;
+  color: var(--gray-mid);
+}
+
+/* ============================================================================
+   11. Responsive Design
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px;
+  }
+
+  .slide-section {
+    padding: var(--section-padding) 24px;
+  }
+
+  .nav-2026 {
+    padding: 16px 24px;
+  }
+
+  .nav-menu {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .nav-cta {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .three-column {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .blog-list {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .client-track {
+    gap: 40px;
+  }
+
+  .footer-2026 {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px;
+  }
+
+  .slide-section {
+    padding: var(--section-padding) 20px;
+  }
+
+  .cta-button {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
+
+/* ============================================================================
+   12. Accessibility
+   ========================================================================= */
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles */
+a:focus,
+button:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 0;
+}

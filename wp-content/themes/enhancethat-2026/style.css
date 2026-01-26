@@ -1,0 +1,18 @@
+/*
+Theme Name: EnhanceThat 2026
+Theme URI: https://enhancethat.fashion
+Author: Enhance That Team
+Author URI: https://enhancethat.fashion
+Description: Black and white minimalist theme for Enhance That featuring scroll-jacking slide animations and presentation-style layout. Full-viewport sections with dynamic transitions powered by GSAP ScrollTrigger.
+Version: 2.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: enhancethat-2026
+Tags: custom-design, one-column, portfolio, blog, minimalist, scroll-jacking, black-white
+*/
+
+/* This file is required by WordPress to recognize the theme */
+/* Main styles are loaded via functions.php from assets/css/ */
