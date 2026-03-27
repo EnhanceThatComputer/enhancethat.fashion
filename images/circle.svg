@@ -1,0 +1,481 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="2061.7px" height="1743.21px"
+		style="transform-origin: 0px 0px 0px;" version="1.1"
+		xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style xmlns="http://www.w3.org/2000/svg" type="text/css"><![CDATA[
+		* {
+			text-rendering: geometricprecision !important;
+		}
+		]]><![CDATA[
+		@font-face {
+			font-family: 'InnovatorGrotesk';
+			font-weight: bold;
+			font-style: normal;
+			src: url('https://r.miro.com/6000000000/124227/362/353/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-Bold.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-Bold.otf&Expires=1774362451&Signature=NRlTgl6n7BsIm7EbmDFSykjf4jNl19Oc6Sul2t6IIfXoZeJvPu67pmU0Cd9RJARvxc1jRJIHrjsNh2iupzm6Ed88i7dT2GsVvUTY91QpK30Hpty5WPea5~0PJKOP1s51JFqFe--GYLarDCv~9jVawYvu0dklQRjdhwJ7xA9I8-Q3KrOTVYOgQ3-Tbz6IasF7TWee1QGY4mvjlBjujoDvZTgxgNV7x-qSdcwWH6iuDw7Wtt756Ybt3798JFpl1kjinLOFuCcQFB7xWJ1aOOQMvo88IkW8Z5QYPEATjduDeTVSwD1SdWa5mjwKfh9URnjNtE9qnu0OsqfDZdFAnox0gQ__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}
+
+		@font-face {
+			font-family: 'InnovatorGrotesk';
+			font-weight: normal;
+			font-style: italic;
+			src: url('https://r.miro.com/6000000000/124227/362/352/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-RegularItalic.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-RegularItalic.otf&Expires=1774362451&Signature=HKJMcEvSKkXZj~DI9cpRZQt6bAJ89E0eYlGb0RPeF69AZCXkieQOVK32aZYHlifylYaspklZWA98HSBLa2fWRUy1Kt7SG4E7YnemVhtERd~Zcjze4DemLDMMlEQ93qr5WjuZl5kuYSOJ6ro~Mdx3W6L8CIiWAVAOeIWLekcmGS7mmOaltU5jueSOH0bHNNhIbfb-vw-jRlOBe-sVyDrDXYYR6uWbG~e5Fvm4ptvXYaCgE78dstCPAcBCOf-8g8mBLC2ypRGeS5UGsisyUN1eAG~Fg7hxnWzXRNXuvpgnI8BTtgCdD1YJ-ygWUG5O405DDOv6mpjqflBfD0CHrpmhWQ__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}
+
+		@font-face {
+			font-family: 'InnovatorGrotesk';
+			font-weight: normal;
+			font-style: normal;
+			src: url('https://r.miro.com/6000000000/124227/362/351/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-Regular.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-Regular.otf&Expires=1774362451&Signature=HP8q2Ep1YwWtpYC3U7FjncTx8-KIT38mwBEmc1hbYCZ5h8vcCxNlELZRCVGfXH1ovH4BWH68MDJaT5-LjcbFTFLE8cnIEEZQRjWHcrYNPdraP7lF4FVmcyBAawNkCX8hr~LPzl4a5KmYXw5Xv2p2i-Xpifj4kFIYPXmDnBJnff4aAoCuf4lPOy-B8fgloaCblf0w8mch08JmHEH2lSBNaugNL6qBQbONlSWDSsziRN04p0-qUUQKLgv~Oe~~rDMt63OzjMR6-ay~~iWLb7WM3L1tEkL1~OtbcoB5~bkLTPDWJYXZCt4V-tZHRTo0d9HUnIstj9gWXfDLxl2jw7upkQ__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}
+
+		@font-face {
+			font-family: 'InnovatorGrotesk';
+			font-weight: bold;
+			font-style: italic;
+			src: url('https://r.miro.com/6000000000/124227/362/354/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-BoldItalic.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-BoldItalic.otf&Expires=1774362451&Signature=kWBYvrqIiIB53iQgcCLJDityEwGK7d7LPI1V4cPZ6BFLkcFcRYflTeTmMniyScctO2e1rzBZV4rjc~YQSwY8s7r4RjsDHVPp3gcz3dVJ06A9M~FSfh~RwHnScBOMrlG-lj9QQcl-oTtDDy79HMnDDEvaaZnVwyKG3s0JYbbAq0DTSzA8r6WPmCZL9Pbj10gk94S~2nHeBBDs-JxIkdk~oYi8WW6OT377i5bm87sULM-T1M2hAuf6Zc2A0huKSmEJGqwL0inPwO~MmzB8UhTZIlSNxtrWlzho8sihYzTb6ThQ3-HyT0tXstY6kQ7FH7Ee9Q8~WV-WDVzTtMXfsU2FhA__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}]]><![CDATA[@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/800985e1502d12bf.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/d8a7ca42a20caea5.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'OpenSans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/3cc74c1d3919bd5c.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/f0481285dc248cf0.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/2f5e8dcf6e47bf00.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'OpenSans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/0e625f45b71a26f1.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://mirostatic.com/app/static/645c27eb7d93eca8.woff2") format('woff2');
+}
+]]><![CDATA[@font-face {
+  font-family: 'Noto Sans Hebrew';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans Hebrew Regular'), local('Noto Sans Hebrew-Regular'), url("https://mirostatic.com/app/static/7ebe1dcf0343326c.woff2") format('woff2'), url("https://mirostatic.com/app/static/6c11f037d6968262.woff") format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans Hebrew';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Hebrew Bold'), local('Noto Sans Hebrew-Bold'), url("https://mirostatic.com/app/static/d2883e2f177d0dad.woff2") format('woff2'), url("https://mirostatic.com/app/static/8546991909eadbc9.woff") format('woff');
+}
+]]><![CDATA[@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans'), local('NotoSans'), url("https://mirostatic.com/app/static/a73798e3d459e1bc.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Noto Sans Italic'), local('NotoSans-Italic'), url("https://mirostatic.com/app/static/a8edd710f88715d4.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Sans Medium'), local('NotoSans-Medium'), url("https://mirostatic.com/app/static/006d7e33e60b9e12.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Noto Sans Medium Italic'), local('NotoSans-MediumItalic'), url("https://mirostatic.com/app/static/31387059566a3171.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Noto Sans SemiBold'), local('NotoSans-SemiBold'), url("https://mirostatic.com/app/static/526dd53b40975c37.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Noto Sans SemiBold Italic'), local('NotoSans-SemiBoldItalic'), url("https://mirostatic.com/app/static/e73d4fdd87d7e319.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'), url("https://mirostatic.com/app/static/9f11d6779c14d2bc.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Noto Sans Bold Italic'), local('NotoSans-BoldItalic'), url("https://mirostatic.com/app/static/888e13e017cedc15.woff2") format('woff2');
+}
+]]><![CDATA[@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans Japanese Regular'), local('Noto Sans Japanese-Regular'), url("https://mirostatic.com/app/static/9320b3c07ab79383.woff2") format('woff2'), url("https://mirostatic.com/app/static/a43be2cbcfc0b250.woff") format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Japanese Bold'), local('Noto Sans Japanese-Bold'), url("https://mirostatic.com/app/static/7ab032c73212439f.woff2") format('woff2'), url("https://mirostatic.com/app/static/29f177f4466bd7a1.woff") format('woff');
+}
+]]><![CDATA[@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url("https://mirostatic.com/app/static/7a5b625774730d22.woff2") format('woff2'), url("https://mirostatic.com/app/static/2d84dc606f1fb88e.woff") format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''), url("https://mirostatic.com/app/static/fa5a3d9073cdd58f.woff2") format('woff2'), url("https://mirostatic.com/app/static/7ded243557c83342.woff") format('woff');
+}
+]]><![CDATA[
+		@font-face {
+			font-family: 'InnovatorGroteskMedium';
+			font-weight: bold;
+			font-style: normal;
+			src: url('https://r.miro.com/6000000000/130102/223/350/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-ExtraBold.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-ExtraBold.otf&Expires=1774362451&Signature=C8huA5Umnox4Oxs6GTk1f6JNTPYjYVj~U966juLogLA3hX8TKDj2uHTjNNKuSEpG8B3lDdOHpu0vyU9CWCcpjaLWcFilDd8JAmxus0PCy1ahRTm5tIr5NH6abBegqcGqYfBF1oa~0x6-v6E59T3GAL~~YTKhB~XvHTmMyxwpHqTWNdJ6nSMhi-JM6ey-Qp4AHmgs-5CVqpJBUgLBVARTKuDhwYKB9fQrnoJZrSJMtTPFHZ9fzYC9iorKJ8akuSoGmwNVAe7Ga~92VRmG9LbwLk5nxqzAd88heaVzMweViXiSTxIYXZmgdRL9niUcg8HnnWoyHND1VAPjU28q0Ikr4A__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}
+
+		@font-face {
+			font-family: 'InnovatorGroteskMedium';
+			font-weight: normal;
+			font-style: italic;
+			src: url('https://r.miro.com/6000000000/130102/223/353/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-MediumItalic.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-MediumItalic.otf&Expires=1774362451&Signature=kvzt7gCFWvNnazi-tC3vteCoCBeGIrBybqkKYiqf4g9TASzy17W4r8ahRyR2vn0LnJtw7uPpCvUU~jFH-o-SbWhlLBRMDViNY9kZhT7Dp87Yu4G5PEu-kUrNxIewsjFFQc5eXJTzOT9xU5vcBDAyeKGWJ1dPROEOcMG3~UObv6KEpYybnR-zpm1-bNQwb-26M9pkkcLNqnwKwp0mfWJvzJEEv6oLb-AOgYrka-SV9e2zKHuADLlv92xq64Ya9dTF7wkK8wpZeyWxyMw6g-etiXsdJveVScBjR17JytywjhXR9ZjaRiRujk97MwXwwl7~WI2OexSQqIi9giP2Q6pV0g__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}
+
+		@font-face {
+			font-family: 'InnovatorGroteskMedium';
+			font-weight: normal;
+			font-style: normal;
+			src: url('https://r.miro.com/6000000000/130102/223/352/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-Medium.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-Medium.otf&Expires=1774362451&Signature=HmYpY5X~j7PB0~j27SfeMY~kTYFj-s~ELWuSvM7Lk0poJbmCqeBfnLLOQxRv2D33JM8C3hQfsH08DIQ4mWwWcq7hsClUblYBFpp-8KF9-XavfWliAbRVtnQb6LzfRTGC6YZ-zAi7AxDBl0f0cT26msGJBeqbV7XZdlwvhshWFdyCAMcXw2fH~ByZCS7UZAn1muavXZKyvzgBgMSS8EYNqeYCvi5N4~MJd5eS8gjEvt~NyITbopd1vHV42NPwtX6Ub~QcVdC4DHO3gDDaNzXurdAehZYte9FYhuRbU06abKz0pPmfFSL5mRh6-~kuYhzxeFNz1N8ZgCJq-wBtnUvqCQ__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}
+
+		@font-face {
+			font-family: 'InnovatorGroteskMedium';
+			font-weight: bold;
+			font-style: italic;
+			src: url('https://r.miro.com/6000000000/130102/223/351/0/original.otf?response-content-disposition=attachment%3B%20filename%3D%22InnovatorGrotesk-ExtraBoldItalic.otf%22%3B%20filename%2A%3DUTF-8%27%27InnovatorGrotesk-ExtraBoldItalic.otf&Expires=1774362451&Signature=KVbwfapdDsswBxMUHy0PYVtIFZOv2~iSwS5ye4Wxsulwk7-YLpicc-vDs3aq1nA7n2shV10PDfjS3-TNp-P4lIsnTgKcne4kmf1CsQ0MPDBqdBFVbYnld2V5QZdVSNZmxVf7MBIjgNv9YEp8etY7UNDDVzmd2vGy5qXzql3MhFA~8xqBhnUpnAcQE3kjpW6HZ7q~2iHG8urJ~CouKfNNqT3nLnxtHKWmaDfUDaDFKJjawHV~~b5e6HcgkN~VzLiX4nQLoAUbL-Q-jlZSY2tBM37mg32utk-9FYJkxRicVyhjLJe-MkkTCdbmLCNKvAeDbrBYB8sY8x7wu2ZA-GWNBA__&Key-Pair-Id=K2SFWAA7M8EHSK');
+		}]]></style></defs><rect id="svg-board-background-color" width="100%" height="100%" fill="#f2f2f2"></rect><image href="data:image/svg+xml;utf8,%3Csvg%0A%09width%3D%227489.573012035953%22%0A%09height%3D%2226302.74470473339%22%0A%09shape-border-width%3D%22shape-background%22%0A%09style%3D%22width%3A7489.573012035953px%3B%20height%3A%2026302.74470473339px%3B%22%0A%09class%3D%22shape-background%22%0A%09preserveAspectRatio%3D%22none%22%0A%09version%3D%221.1%22%0A%09xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%3E%0A%09%3CclipPath%20id%3D%22946040254256%22%3E%0A%09%09%3Crect%0A%09%09%09x%3D%220%22%0A%09%09%09y%3D%220%22%0A%09%09%09width%3D%227489.573012035953%22%0A%09%09%09height%3D%2226302.74470473339%22%0A%09%09%09rx%3D%220%22%0A%09%09%09ry%3D%220%22%0A%09%09%3E%3C%2Frect%3E%0A%09%3C%2FclipPath%3E%0A%09%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%220%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%09%09%3Crect%0A%09%09%09class%3D%22shape-element%20shape-element-rect%22%0A%09%09%09stroke%3D%22%23000000%22%0A%09%09%09stroke-width%3D%220%22%0A%09%09%09stroke-dasharray%3D%22%22%0A%09%09%09stroke-opacity%3D%22%22%0A%09%09%09fill%3D%22%23ffffff%22%0A%09%09%09fill-opacity%3D%22%22%0A%09%09%09x%3D%220%22%0A%09%09%09y%3D%220%22%0A%09%09%09width%3D%227489.573012035953%22%0A%09%09%09height%3D%2226302.74470473339%22%0A%09%09%09rx%3D%220%22%0A%09%09%09ry%3D%220%22%0A%09%09%09clip-path%3D%22url(%23946040254256)%22%0A%09%09%3E%3C%2Frect%3E%0A%09%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A" width="7489.57px" height="26302.74px" data-frame="true" preserveAspectRatio="none" data-frame-id="3458764664990785622" transform="translate(-5222.86, -11429.76) scale(1) rotate(0, 3744.785, 13151.37)" /><g width="7549.44px" height="10094.82px"  transform="translate(-5222.86, -907.87) scale(1) rotate(0, 3774.72, 5047.41)"><svg
+	width="7549.443848913787"
+	height="10094.822128342757"
+	shape-border-width="shape-background"
+	style="width:7549.443848913787px; height: 10094.822128342757px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="6619705897">
+		<rect
+			x="0"
+			y="0"
+			width="7549.443848913787"
+			height="10094.822128342757"
+			rx="0"
+			ry="0"
+		></rect>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<rect
+			class="shape-element shape-element-rect"
+			stroke="transparent"
+			stroke-width="0"
+			stroke-dasharray=""
+			stroke-opacity="1"
+			fill="#1a1a1a"
+			fill-opacity="1"
+			x="0"
+			y="0"
+			width="7549.443848913787"
+			height="10094.822128342757"
+			rx="0"
+			ry="0"
+			clip-path="url(#6619705897)"
+		></rect>
+	</g>
+</svg>
+</g><g width="7549.44px" height="10094.82px"  transform="translate(-5222.86, -907.87) rotate(0, 3774.72, 5047.41)"><g transform="translate(377.4721924456894, 377.4721924456894)"></g></g><g width="309.14px" height="16px"  transform="translate(-4228.12, 1372.85) scale(15.428571428571429) rotate(0, 154.57, 8)"><svg
+	width="309.14"
+	height="16"
+	shape-border-width="shape-background"
+	style="width:309.14px; height: 16px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="1550403864131">
+		<rect
+			x="0"
+			y="0"
+			width="309.14"
+			height="16"
+			rx="0"
+			ry="0"
+		></rect>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<rect
+			class="shape-element shape-element-rect"
+			stroke="transparent"
+			stroke-width="0"
+			stroke-dasharray=""
+			stroke-opacity="0"
+			fill="transparent"
+			fill-opacity="0"
+			x="0"
+			y="0"
+			width="309.14"
+			height="16"
+			rx="0"
+			ry="0"
+			clip-path="url(#1550403864131)"
+		></rect>
+	</g>
+</svg>
+</g><g width="4769.588571428571px" height="246.85714285714286px"  transform="translate(-4228.12, 1372.85) rotate(0, 2384.7942857142857, 123.42857142857143)"><g transform="translate(0, 0)"><text xml:space="preserve" x="0" y="216" width="3047.1082502092636" textLength="3047.1082502092636" lengthAdjust="spacingAndGlyphs" letter-spacing="0" font-family='"InnovatorGroteskMedium", Helvetica, OpenSans, Arial, sans-serif, Noto Sans Hebrew, Noto Sans, Noto Sans JP, Noto Sans KR' font-size="216" 
+				fill="#eeedea" direction="ltr" font-weight="bold">+ That’s how brands win now</text></g></g><image href="data:image/svg+xml;utf8,%3Csvg%0A%09width%3D%222061.6951394216267%22%0A%09height%3D%221743.2063856009067%22%0A%09shape-border-width%3D%22shape-background%22%0A%09style%3D%22width%3A2061.6951394216267px%3B%20height%3A%201743.2063856009067px%3B%22%0A%09class%3D%22shape-background%22%0A%09preserveAspectRatio%3D%22none%22%0A%09version%3D%221.1%22%0A%09xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%3E%0A%09%3CclipPath%20id%3D%22637713405007%22%3E%0A%09%09%3Crect%0A%09%09%09x%3D%220%22%0A%09%09%09y%3D%220%22%0A%09%09%09width%3D%222061.6951394216267%22%0A%09%09%09height%3D%221743.2063856009067%22%0A%09%09%09rx%3D%220%22%0A%09%09%09ry%3D%220%22%0A%09%09%3E%3C%2Frect%3E%0A%09%3C%2FclipPath%3E%0A%09%3Cg%20id%3D%22Page-1%22%20stroke%3D%22none%22%20stroke-width%3D%220%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%09%09%3Crect%0A%09%09%09class%3D%22shape-element%20shape-element-rect%22%0A%09%09%09stroke%3D%22%23000000%22%0A%09%09%09stroke-width%3D%220%22%0A%09%09%09stroke-dasharray%3D%22%22%0A%09%09%09stroke-opacity%3D%22%22%0A%09%09%09fill%3D%22transparent%22%0A%09%09%09fill-opacity%3D%220%22%0A%09%09%09x%3D%220%22%0A%09%09%09y%3D%220%22%0A%09%09%09width%3D%222061.6951394216267%22%0A%09%09%09height%3D%221743.2063856009067%22%0A%09%09%09rx%3D%220%22%0A%09%09%09ry%3D%220%22%0A%09%09%09clip-path%3D%22url(%23637713405007)%22%0A%09%09%3E%3C%2Frect%3E%0A%09%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A" width="2061.7px" height="1743.21px" data-frame="true" preserveAspectRatio="none" data-frame-id="3458764664992120057" transform="translate(0.74, 0.79) scale(1) rotate(0, 1030.85, 871.605)" /><g width="1643.21px" height="1643.21px"  transform="translate(50.74, 50.79) scale(1) rotate(0, 821.605, 821.605)"><svg
+	width="1643.2063856009052"
+	height="1643.2063856009067"
+	style="width:1643.2063856009052px; height: 1643.2063856009067px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="171013860683">
+		<ellipse cx="821.6031928004526" cy="821.6031928004534" rx="821.6031928004526" ry="821.6031928004534"></ellipse>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<ellipse
+			class="shape-element shape-element-ellipse"
+			cx="821.6031928004526"
+			cy="821.6031928004534"
+			rx="821.6031928004526"
+			ry="821.6031928004534"
+			stroke="#eeedea"
+			stroke-width="16"
+			stroke-dasharray=""
+			stroke-opacity="1"
+			fill="transparent"
+			fill-opacity="0"
+			clip-path="url(#171013860683)"
+		/>
+	</g>
+</svg>
+</g><g width="1643.21px" height="1643.21px"  transform="translate(50.74, 50.79) rotate(0, 821.605, 821.605)"><g transform="translate(240.64200372673406, 240.6420037267343)"></g></g><g width="897.43px" height="897.43px"  transform="translate(423.62, 423.67) scale(1) rotate(0, 448.715, 448.715)"><svg
+	width="897.4344631666468"
+	height="897.4344631666476"
+	style="width:897.4344631666468px; height: 897.4344631666476px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="663307665219">
+		<ellipse cx="448.7172315833234" cy="448.7172315833238" rx="448.7172315833234" ry="448.7172315833238"></ellipse>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<ellipse
+			class="shape-element shape-element-ellipse"
+			cx="448.7172315833234"
+			cy="448.7172315833238"
+			rx="448.7172315833234"
+			ry="448.7172315833238"
+			stroke="#eeedea"
+			stroke-width="16"
+			stroke-dasharray=""
+			stroke-opacity="1"
+			fill="transparent"
+			fill-opacity="0"
+			clip-path="url(#663307665219)"
+		/>
+	</g>
+</svg>
+</g><g width="897.43px" height="897.43px"  transform="translate(423.62, 423.67) rotate(0, 448.715, 448.715)"><g transform="translate(131.42623429550093, 131.42623429550105)"></g></g><g width="354.43px" height="354.43px"  transform="translate(695.13, 695.18) scale(1) rotate(0, 177.215, 177.215)"><svg
+	width="354.42526402288"
+	height="354.4252640228803"
+	style="width:354.42526402288px; height: 354.4252640228803px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="1646035451054">
+		<ellipse cx="177.21263201144" cy="177.21263201144015" rx="177.21263201144" ry="177.21263201144015"></ellipse>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<ellipse
+			class="shape-element shape-element-ellipse"
+			cx="177.21263201144"
+			cy="177.21263201144015"
+			rx="177.21263201144"
+			ry="177.21263201144015"
+			stroke="#eeedea"
+			stroke-width="16"
+			stroke-dasharray=""
+			stroke-opacity="1"
+			fill="transparent"
+			fill-opacity="0"
+			clip-path="url(#1646035451054)"
+		/>
+	</g>
+</svg>
+</g><g width="354.43px" height="354.43px"  transform="translate(695.13, 695.18) rotate(0, 177.215, 177.215)"><g transform="translate(51.90437820423452, 51.90437820423456)"><text xml:space="preserve" x="39.343265098709395" y="153.30825380720557" width="171.9299774169922" textLength="171.9299774169922" lengthAdjust="spacingAndGlyphs" letter-spacing="0" font-family='"InnovatorGroteskMedium", Helvetica, OpenSans, Arial, sans-serif, Noto Sans Hebrew, Noto Sans, Noto Sans JP, Noto Sans KR' font-size="66" 
+				fill="#1a1a1a" direction="ltr" >Taste</text></g></g><g width="80.45px" height="16px"  transform="translate(1472.92, 818.74) scale(6.706105602560655) rotate(0, 40.225, 8)"><svg
+	width="80.45"
+	height="16"
+	shape-border-width="shape-background"
+	style="width:80.45px; height: 16px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="1598388827932">
+		<rect
+			x="0"
+			y="0"
+			width="80.45"
+			height="16"
+			rx="0"
+			ry="0"
+		></rect>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<rect
+			class="shape-element shape-element-rect"
+			stroke="transparent"
+			stroke-width="0"
+			stroke-dasharray=""
+			stroke-opacity="0"
+			fill="transparent"
+			fill-opacity="0"
+			x="0"
+			y="0"
+			width="80.45"
+			height="16"
+			rx="0"
+			ry="0"
+			clip-path="url(#1598388827932)"
+		></rect>
+	</g>
+</svg>
+</g><g width="539.5061957260046px" height="107.29768964097048px"  transform="translate(1472.92, 818.74) rotate(0, 269.7530978630023, 53.64884482048524)"><g transform="translate(0, 0)"><rect transform="translate(0, 0)" width="437.78745875739884" height="107.29768964097048" fill="#1a1a1a" ></rect><text xml:space="preserve" x="0" y="93.88547843584917" width="437.78745875739884" textLength="437.78745875739884" lengthAdjust="spacingAndGlyphs" letter-spacing="0" font-family='"InnovatorGroteskMedium", Helvetica, OpenSans, Arial, sans-serif, Noto Sans Hebrew, Noto Sans, Noto Sans JP, Noto Sans KR' font-size="93.88547843584917" 
+				fill="#eeedea" direction="ltr" font-weight="bold">Audience</text></g></g><g width="41px" height="16px"  transform="translate(1105.6, 818.74) scale(6.706105602560655) rotate(0, 20.5, 8)"><svg
+	width="41"
+	height="16"
+	shape-border-width="shape-background"
+	style="width:41px; height: 16px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="1355924105509">
+		<rect
+			x="0"
+			y="0"
+			width="41"
+			height="16"
+			rx="0"
+			ry="0"
+		></rect>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<rect
+			class="shape-element shape-element-rect"
+			stroke="transparent"
+			stroke-width="0"
+			stroke-dasharray=""
+			stroke-opacity="0"
+			fill="transparent"
+			fill-opacity="0"
+			x="0"
+			y="0"
+			width="41"
+			height="16"
+			rx="0"
+			ry="0"
+			clip-path="url(#1355924105509)"
+		></rect>
+	</g>
+</svg>
+</g><g width="274.95032970498687px" height="107.29768964097048px"  transform="translate(1105.6, 818.74) rotate(0, 137.47516485249344, 53.64884482048524)"><g transform="translate(0, 0)"><rect transform="translate(0, 0)" width="269.26309454744415" height="107.29768964097048" fill="#1a1a1a" ></rect><text xml:space="preserve" x="0" y="93.88547843584917" width="269.26309454744415" textLength="269.26309454744415" lengthAdjust="spacingAndGlyphs" letter-spacing="0" font-family='"InnovatorGroteskMedium", Helvetica, OpenSans, Arial, sans-serif, Noto Sans Hebrew, Noto Sans, Noto Sans JP, Noto Sans KR' font-size="93.88547843584917" 
+				fill="#eeedea" direction="ltr" font-weight="bold">Trust </text></g></g><g width="40px" height="16px"  transform="translate(745.38, 818.74) scale(6.706105602560655) rotate(0, 20, 8)"><svg
+	width="40"
+	height="16"
+	shape-border-width="shape-background"
+	style="width:40px; height: 16px;"
+	class="shape-background"
+	preserveAspectRatio="none"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<clipPath id="1443773803119">
+		<rect
+			x="0"
+			y="0"
+			width="40"
+			height="16"
+			rx="0"
+			ry="0"
+		></rect>
+	</clipPath>
+	<g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+		<rect
+			class="shape-element shape-element-rect"
+			stroke="transparent"
+			stroke-width="0"
+			stroke-dasharray=""
+			stroke-opacity="0"
+			fill="transparent"
+			fill-opacity="0"
+			x="0"
+			y="0"
+			width="40"
+			height="16"
+			rx="0"
+			ry="0"
+			clip-path="url(#1443773803119)"
+		></rect>
+	</g>
+</svg>
+</g><g width="268.2442241024262px" height="107.29768964097048px"  transform="translate(745.38, 818.74) rotate(0, 134.1221120512131, 53.64884482048524)"><g transform="translate(0, 0)"><rect transform="translate(0, 0)" width="258.18475871743277" height="107.29768964097048" fill="#1a1a1a" ></rect><text xml:space="preserve" x="0" y="93.88547843584917" width="258.18475871743277" textLength="258.18475871743277" lengthAdjust="spacingAndGlyphs" letter-spacing="0" font-family='"InnovatorGroteskMedium", Helvetica, OpenSans, Arial, sans-serif, Noto Sans Hebrew, Noto Sans, Noto Sans JP, Noto Sans KR' font-size="93.88547843584917" 
+				fill="#eeedea" direction="ltr" font-weight="bold">Taste</text></g></g></svg>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Founders — EnhanceThat</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── About page ── */
+
+    .about-hero {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-hero-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+      padding: 6rem 2.5rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .about-headline {
+      font-family: 'Domaine Display', serif;
+      font-weight: 400;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--sand);
+      margin: 0;
+    }
+
+    .about-hero-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .about-hero-eyebrow {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+
+    .about-hero-descriptor {
+      font-family: 'Domaine Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: var(--fg-muted);
+      max-width: 400px;
+    }
+
+    /* ── Body ── */
+
+    .about-body-section {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-body-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-body-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-body-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .about-p {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: var(--text-body);
+      line-height: var(--text-body-lh);
+      color: var(--fg-muted);
+    }
+
+    .about-p--pull {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: var(--text-body);
+      line-height: var(--text-body-lh);
+      color: var(--sand);
+      font-weight: 700;
+      border-left: 2px solid var(--pink);
+      padding-left: 1.25rem;
+    }
+
+    /* ── Stats strip ── */
+
+    .about-stats {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-stats-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-stat {
+      padding-right: 2rem;
+      border-right: 1px solid var(--border);
+      margin-right: 2rem;
+    }
+
+    .about-stat:last-child {
+      border-right: none;
+      margin-right: 0;
+    }
+
+    .about-stat-number {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      letter-spacing: var(--ls-tight);
+      color: var(--sand);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-stat-label {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--fg-muted);
+    }
+
+    /* ── Credentials ── */
+
+    .about-creds {
+      background-color: var(--sand);
+      border-bottom: 1px solid rgba(32,32,32,0.08);
+    }
+
+    .about-creds-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+    }
+
+    .about-creds-label {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.75rem;
+    }
+
+    .about-creds-context {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: var(--text-body);
+      line-height: var(--text-body-lh);
+      color: rgba(32,32,32,0.55);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-creds-names {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .about-creds-names span {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: var(--ls-tight);
+      color: var(--black);
+      opacity: 0.4;
+    }
+
+    /* ── Follow ── */
+
+    .about-follow {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-follow-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-follow-left p {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: var(--text-body);
+      line-height: var(--text-body-lh);
+      color: var(--fg-muted);
+      max-width: 380px;
+    }
+
+    .about-follow-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-follow-label {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-follow-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .about-follow-btn {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      border: 1px solid rgba(238,237,234,0.2);
+      padding: 0.5rem 1.1rem;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .about-follow-btn:hover {
+      border-color: var(--fg);
+      color: var(--fg);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="EnhanceThat Home">
+        <img src="design%20ellements/Logo/ETLogoWhite.png" alt="EnhanceThat" height="36">
+      </a>
+      <nav>
+        <a href="index.html#system">What we do</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html" class="nav-active">About</a>
+      </nav>
+      <a href="#" class="header-cta">Schedule a call</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <h1 class="about-headline">About the<br>founders</h1>
+        <div class="about-hero-aside">
+          <p class="about-hero-eyebrow">Responsible for delivery. Not observation.</p>
+          <p class="about-hero-descriptor">We've worked inside the brands we now help build systems for — at the point where decisions impact the business.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BODY COPY ── -->
+    <section class="about-body-section">
+      <div class="about-body-inner">
+
+        <div class="about-body-left">
+          <p class="about-p">EnhanceThat builds the systems behind brand-led fashion. Built on experience inside global fashion brands, across product development and digital product creation.</p>
+          <p class="about-p">We work with the teams inside brands. And with the companies building the tools they use. That position allows us to move across the full system — from design to production.</p>
+          <p class="about-p">Our focus is not tools. It's how decisions are made, and how they translate into product, content and production.</p>
+        </div>
+
+        <div class="about-body-right">
+          <p class="about-p--pull">No layers. No dependency. No distance from the work.</p>
+          <p class="about-p--pull">Everything we build lives in your environment, connects to your existing stack, and works in daily workflows.</p>
+          <p class="about-p">We are brought in to make things work that internal teams don't have the time, structure or capacity to solve. And to do it in a way that holds.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── STATS ── -->
+    <section class="about-stats">
+      <div class="about-stats-inner">
+        <div class="about-stat">
+          <p class="about-stat-number">15+</p>
+          <p class="about-stat-label">Years working inside global fashion brands</p>
+        </div>
+        <div class="about-stat">
+          <p class="about-stat-number">20+</p>
+          <p class="about-stat-label">Brands and teams supported across market segments</p>
+        </div>
+        <div class="about-stat">
+          <p class="about-stat-number">3</p>
+          <p class="about-stat-label">Pillars. One operating model. Design — Test — Scale.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CREDENTIALS ── -->
+    <section class="about-creds">
+      <div class="about-creds-inner">
+        <p class="about-creds-label">Where we've worked</p>
+        <p class="about-creds-context">Experience drawn from roles inside some of the world's most recognised fashion organisations.</p>
+        <div class="about-creds-names">
+          <span>Nike</span>
+          <span>Tommy Hilfiger</span>
+          <span>Calvin Klein</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOLLOW ── -->
+    <section class="about-follow">
+      <div class="about-follow-inner">
+        <div class="about-follow-left">
+          <p>We work where brand, business and production meet. If that's the problem you're solving — we're easy to reach.</p>
+        </div>
+        <div class="about-follow-right">
+          <p class="about-follow-label">Get in touch</p>
+          <div class="about-follow-links">
+            <a href="#" class="about-follow-btn" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:hello@enhancethat.fashion" class="about-follow-btn">Email</a>
+            <a href="#" class="about-follow-btn" target="_blank" rel="noopener">Schedule a call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section">
+      <div class="cta-frame">
+        <div class="cta-inner">
+          <p class="cta-pre">Ready when you are.</p>
+          <p class="cta-headline">Design, test and scale<br>with real demand.</p>
+          <a href="#" class="cta-btn">Schedule a call</a>
+          <p class="cta-credibility">Built by people who've worked inside Nike, Tommy Hilfiger and Calvin Klein.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="design%20ellements/Logo/ETLogoWhite.png" alt="EnhanceThat" height="26">
+      <p class="footer-copy">© 2026 EnhanceThat</p>
+    </div>
+  </footer>
+
+</body>
+</html>

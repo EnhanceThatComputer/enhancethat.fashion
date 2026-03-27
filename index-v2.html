@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnhanceThat — The Operating System for Brand-Led Fashion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── DTS HERO FLOW ── */
+    .dts-flow { width: 100%; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .dts-header-row {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr 48px 1fr;
+      gap: 0;
+    }
+    .dts-step-label { display: flex; flex-direction: column; gap: 0.15rem; }
+    .dts-step-name { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: 1rem; color: var(--sand); }
+    .dts-step-sub { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(238,237,234,0.35); }
+
+    .dts-panel-row {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr 48px 1fr;
+      align-items: center;
+    }
+    .dts-panel {
+      width: 100%;
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      border: 1px solid rgba(238,237,234,0.12);
+      position: relative;
+      background: #111;
+    }
+    .dts-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      opacity: 0.9;
+    }
+    .dts-panel--test {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.25rem 1.5rem;
+      gap: 0;
+    }
+    .dts-metric { display: flex; flex-direction: column; gap: 0.1rem; padding: 0.6rem 0; }
+    .dts-metric-val { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--sand); letter-spacing: -0.02em; }
+    .dts-metric-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(238,237,234,0.35); }
+    .dts-metric-line { height: 1px; background: rgba(238,237,234,0.07); margin: 0; }
+    .dts-demand-tag { margin-top: 0.75rem; font-size: 0.65rem; font-weight: 700; color: #5aba8a; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .dts-panel-arrow { display: flex; justify-content: center; align-items: center; color: rgba(238,237,234,0.2); font-size: 1rem; }
+
+    .dts-loop { display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+    .dts-loop-line { flex: 1; height: 1px; background: rgba(238,237,234,0.08); }
+    .dts-loop-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(238,237,234,0.18); white-space: nowrap; }
+
+    /* ── NARRATIVE V2 ── */
+    .narrative-v2 {
+      background: var(--sand);
+      padding: var(--section-v) var(--section-h);
+    }
+    .narr-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+    }
+
+    /* Part A: The Problem */
+    .narr-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(32,32,32,0.45);
+      margin-bottom: 1.5rem;
+    }
+    .narr-headline {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 0.75rem;
+      max-width: 700px;
+    }
+    .narr-subline {
+      font-size: 1rem;
+      color: rgba(32,32,32,0.55);
+      margin-bottom: 3rem;
+      font-style: italic;
+      font-family: 'Domaine Display', serif;
+    }
+
+    /* Stat block */
+    .narr-stat-block {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      background: var(--black);
+      margin-bottom: 0;
+      box-shadow: -5px 5px 0 0 rgba(32,32,32,0.25);
+    }
+    .narr-stat-left {
+      padding: 2.5rem;
+      border-right: 1px solid rgba(238,237,234,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .narr-stat-num {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: var(--sand);
+    }
+    .narr-stat-unit {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-top: 0.25rem;
+    }
+    .narr-stat-desc {
+      font-size: 0.75rem;
+      color: rgba(238,237,234,0.4);
+      line-height: 1.5;
+      margin-top: 1rem;
+      max-width: 150px;
+    }
+
+    /* Flow viz in dark block */
+    .narr-flow-viz {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .nflow-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(238,237,234,0.3);
+    }
+    .nflow-track {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .nflow-node {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sand);
+      padding: 0.5rem 0.85rem;
+      border: 1px solid rgba(238,237,234,0.2);
+      white-space: nowrap;
+    }
+    .nflow-gap-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0 0.5rem;
+    }
+    .nflow-gap-label {
+      font-size: 0.62rem;
+      color: var(--pink);
+      font-style: italic;
+      white-space: nowrap;
+    }
+    .nflow-gap-line {
+      width: 100%;
+      height: 1px;
+      background: rgba(238,237,234,0.15);
+    }
+    .nflow-caption {
+      font-size: 0.72rem;
+      color: rgba(238,237,234,0.35);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Three costs */
+    .narr-costs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1.5px solid var(--black);
+      border-top: none;
+      margin-bottom: 5rem;
+    }
+    .narr-cost-item {
+      padding: 1.75rem;
+      border-right: 1px solid rgba(32,32,32,0.12);
+    }
+    .narr-cost-item:last-child { border-right: none; }
+    .cost-num {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(32,32,32,0.3);
+      margin-bottom: 0.6rem;
+    }
+    .cost-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
+    /* Divider */
+    .narr-divider-line {
+      border: none;
+      border-top: 1px solid rgba(32,32,32,0.12);
+      margin-bottom: 4.5rem;
+    }
+
+    /* Part B: Winners */
+    .narr-winners-head {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 3rem;
+      max-width: 700px;
+    }
+
+    /* Speed bars */
+    .narr-speeds {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .nspeed-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 90px;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .nspeed-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(32,32,32,0.6);
+      text-align: right;
+    }
+    .nspeed-track {
+      height: 6px;
+      background: rgba(32,32,32,0.08);
+      position: relative;
+    }
+    .nspeed-fill {
+      height: 100%;
+      background: var(--black);
+    }
+    .nspeed-weeks {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    /* Two insights */
+    .narr-insights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 4.5rem;
+    }
+    .narr-insight-item {
+      border-left: 2px solid var(--black);
+      padding: 0.25rem 0 0.25rem 1.25rem;
+    }
+    .narr-insight-item p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(32,32,32,0.65);
+    }
+
+    /* Part C: Hook */
+    .narr-hook {
+      background: var(--black);
+      padding: 4.5rem 3rem;
+      text-align: center;
+    }
+    .narr-hook-eyebrow { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--pink); margin-bottom: 1.25rem; }
+    .narr-hook-text {
+      font-family: 'Domaine Display', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--sand);
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    /* ── OPPORTUNITY V2 (dark) ── */
+    .opp-v2 { background: var(--black); padding: var(--section-v) var(--section-h); }
+    .opp-v2-inner { max-width: var(--content-w); margin: 0 auto; }
+    .opp-v2-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(238,237,234,0.35); margin-bottom: 1.5rem; }
+    .opp-v2-headline { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--sand); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.25rem; max-width: 680px; }
+    .opp-v2-body { font-size: 1.05rem; color: rgba(238,237,234,0.55); line-height: 1.7; max-width: 580px; margin-bottom: 3.5rem; }
+    .opp-v2-assets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(238,237,234,0.08); margin-bottom: 4rem; }
+    .opp-asset-item { background: var(--black); padding: 2rem; }
+    .opp-asset-num { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--pink); margin-bottom: 0.75rem; }
+    .opp-asset-name { font-family: 'Innovator Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--sand); margin-bottom: 0.5rem; }
+    .opp-asset-desc { font-size: 0.82rem; color: rgba(238,237,234,0.4); line-height: 1.5; }
+    .opp-v2-close { border-top: 1px solid rgba(238,237,234,0.1); padding-top: 3rem; display: flex; align-items: baseline; gap: 2.5rem; }
+    .opp-v2-close-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(238,237,234,0.25); white-space: nowrap; }
+    .opp-v2-close-statement { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--sand); letter-spacing: -0.03em; line-height: 1.1; }
+
+    /* ── THE REAL SHIFT (dark) ── */
+    .shift-section { background: var(--black); padding: var(--section-v) var(--section-h); }
+    .shift-inner { max-width: var(--content-w); margin: 0 auto; }
+    .shift-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(238,237,234,0.35); margin-bottom: 1.5rem; }
+    .shift-headline { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.2vw, 2.8rem); color: var(--sand); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; max-width: 680px; }
+    .shift-subline { font-family: 'Domaine Display', serif; font-style: italic; font-size: 1.2rem; color: rgba(238,237,234,0.5); margin-bottom: 4rem; }
+    .shift-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 4rem; }
+    .shift-col { padding: 2.5rem; border: 1px solid rgba(238,237,234,0.07); }
+    .shift-col--new { border-color: rgba(238,237,234,0.18); background: rgba(238,237,234,0.02); }
+    .shift-col-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(238,237,234,0.25); margin-bottom: 1.75rem; display: block; }
+    .shift-col--new .shift-col-label { color: var(--pink); }
+    .shift-col-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+    .shift-col-list li { font-size: 1rem; line-height: 1.4; color: rgba(238,237,234,0.35); padding-left: 1.25rem; position: relative; }
+    .shift-col-list li::before { content: '—'; position: absolute; left: 0; color: rgba(238,237,234,0.15); }
+    .shift-col--new .shift-col-list li { color: var(--sand); }
+    .shift-col--new .shift-col-list li::before { content: '→'; color: var(--pink); }
+    .shift-close { font-family: 'Domaine Display', serif; font-style: italic; font-size: clamp(1.5rem, 2.5vw, 2.2rem); color: var(--sand); line-height: 1.4; border-top: 1px solid rgba(238,237,234,0.1); padding-top: 3rem; max-width: 700px; }
+
+    /* ── HOW IT WORKS (sand) ── */
+    .process-section { background: var(--sand); padding: var(--section-v) var(--section-h); }
+    .process-inner { max-width: var(--content-w); margin: 0 auto; }
+    .process-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(32,32,32,0.4); margin-bottom: 1.5rem; }
+    .process-headline { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.2vw, 2.8rem); letter-spacing: -0.03em; line-height: 1.1; color: var(--black); margin-bottom: 4rem; max-width: 600px; }
+    .process-steps { display: flex; flex-direction: column; }
+    .process-step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-top: 1px solid rgba(32,32,32,0.1); align-items: start; }
+    .process-step:last-child { border-bottom: 1px solid rgba(32,32,32,0.1); }
+    .pstep-num { font-family: 'Innovator Grotesk', sans-serif; font-weight: 900; font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(32,32,32,0.22); padding-top: 0.25rem; }
+    .pstep-name { font-family: 'Innovator Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--black); margin-bottom: 0.4rem; }
+    .pstep-desc { font-size: 0.95rem; color: rgba(32,32,32,0.6); line-height: 1.65; max-width: 580px; }
+    .pstep-fork { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; max-width: 580px; }
+    .pstep-fork-item { padding: 1rem 1.25rem; border: 1px solid rgba(32,32,32,0.1); }
+    .pstep-fork-item--yes { border-left: 2px solid var(--black); }
+    .pstep-fork-item--no { border-left: 2px solid rgba(32,32,32,0.15); }
+    .pfork-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(32,32,32,0.3); display: block; margin-bottom: 0.35rem; }
+    .pfork-text { font-size: 0.88rem; font-weight: 600; color: var(--black); line-height: 1.4; }
+    .pstep-fork-item--no .pfork-text { color: rgba(32,32,32,0.45); }
+
+    /* ── QUALIFIER (dark, replaces What Changes) ── */
+    .qualifier-section { background: var(--black); padding: var(--section-v) var(--section-h); }
+    .qualifier-inner { max-width: var(--content-w); margin: 0 auto; }
+    .qualifier-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(238,237,234,0.35); margin-bottom: 1.5rem; }
+    .qualifier-headline { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.2vw, 2.8rem); color: var(--sand); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.25rem; max-width: 640px; }
+    .qualifier-body { font-size: 1.05rem; color: rgba(238,237,234,0.5); line-height: 1.7; max-width: 560px; margin-bottom: 3.5rem; }
+    .qualifier-criteria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(238,237,234,0.07); margin-bottom: 5rem; }
+    .qualifier-item { background: var(--black); padding: 2rem; }
+    .qualifier-item-num { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--pink); margin-bottom: 0.75rem; }
+    .qualifier-item-name { font-family: 'Innovator Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--sand); line-height: 1.4; }
+    .qualifier-item-desc { font-size: 0.8rem; color: rgba(238,237,234,0.4); line-height: 1.5; margin-top: 0.5rem; }
+    .qualifier-et { border-top: 1px solid rgba(238,237,234,0.1); padding-top: 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .qualifier-et-statement { font-family: 'Domaine Display', serif; font-style: italic; font-size: clamp(1.5rem, 2.5vw, 2.1rem); color: var(--sand); line-height: 1.35; }
+    .qualifier-et-body { font-size: 0.95rem; color: rgba(238,237,234,0.5); line-height: 1.75; padding-top: 0.25rem; }
+
+    /* ── STRIP SECTION ── */
+    .strip-section { background: var(--black); padding: var(--section-v) var(--section-h); }
+    .strip-inner { max-width: var(--content-w); margin: 0 auto; }
+    .strip-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(238,237,234,0.3); margin-bottom: 3rem; }
+    .strip-lines { display: flex; flex-direction: column; gap: 0; }
+    .strip-line { display: flex; align-items: baseline; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid rgba(238,237,234,0.06); }
+    .strip-line:last-child { border-bottom: 1px solid rgba(238,237,234,0.06); }
+    .strip-word { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.4rem); letter-spacing: -0.03em; color: var(--pink); min-width: 160px; flex-shrink: 0; }
+    .strip-pain { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.4rem); letter-spacing: -0.03em; color: var(--sand); line-height: 1.1; }
+    .strip-line--payoff { margin-top: 1rem; border-top: 1px solid rgba(238,237,234,0.15) !important; }
+    .strip-line--payoff .strip-word { color: rgba(238,237,234,0.3); }
+    .strip-line--payoff .strip-pain { font-family: 'Domaine Display', serif; font-weight: 400; font-style: italic; color: var(--sand); font-size: clamp(1.6rem, 2.8vw, 2.4rem); }
+    .strip-outcome { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(238,237,234,0.1); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; }
+    .strip-outcome-statement { font-family: 'Domaine Display', serif; font-style: italic; font-size: clamp(1.5rem, 2.5vw, 2.1rem); color: var(--sand); line-height: 1.35; }
+    .strip-outcome-body { font-size: 0.95rem; color: rgba(238,237,234,0.45); line-height: 1.75; }
+
+    /* ── PROOF STRIP ── */
+    .proof-strip { background: var(--sand); border-top: 1px solid rgba(32,32,32,0.08); border-bottom: 1px solid rgba(32,32,32,0.08); padding: 2rem var(--section-h); }
+    .proof-strip-inner { max-width: var(--content-w); margin: 0 auto; display: flex; align-items: center; gap: 3rem; }
+    .proof-strip-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(32,32,32,0.35); white-space: nowrap; }
+    .proof-strip-names { display: flex; gap: 2.5rem; align-items: center; }
+    .proof-strip-names span { font-family: 'Innovator Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: rgba(32,32,32,0.55); letter-spacing: -0.01em; }
+    .proof-strip-divider { width: 1px; height: 1.2rem; background: rgba(32,32,32,0.15); }
+
+    /* ── CASE TEASER ── */
+    .case-teaser { background: var(--sand); padding: var(--section-v) var(--section-h); border-top: 1px solid rgba(32,32,32,0.1); }
+    .case-teaser-inner { max-width: var(--content-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .case-teaser-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(32,32,32,0.4); margin-bottom: 0.75rem; }
+    .case-teaser-brand { font-family: 'Innovator Grotesk', sans-serif; font-weight: 800; font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.03em; line-height: 1; color: var(--black); margin-bottom: 1.25rem; }
+    .case-teaser-desc { font-size: 1rem; color: rgba(32,32,32,0.55); line-height: 1.65; max-width: 420px; margin-bottom: 1.75rem; }
+    .case-teaser-link { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--black); text-decoration: none; border-bottom: 1px solid var(--black); padding-bottom: 0.1rem; }
+    .case-teaser-right { display: flex; flex-direction: column; gap: 0; padding-top: 0.5rem; }
+    .case-pillar { display: grid; grid-template-columns: 32px 1fr auto; align-items: center; gap: 1rem; padding: 1.25rem 0; border-top: 1px solid rgba(32,32,32,0.1); }
+    .case-pillar:last-child { border-bottom: 1px solid rgba(32,32,32,0.1); }
+    .case-pillar-num { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(32,32,32,0.25); }
+    .case-pillar-name { font-family: 'Innovator Grotesk', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--black); }
+    .case-pillar-status { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #5aba8a; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="EnhanceThat Home">
+        <img src="design%20ellements/Logo/ETLogoWhite.png" alt="EnhanceThat" height="36">
+      </a>
+      <nav>
+        <a href="index.html#system">What we do</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <a href="#" class="header-cta">Schedule a call</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+
+      <div class="hero-content">
+        <p class="tagline">Strong brands don't guess.<br>They decide.</p>
+        <h1><span style="display:block;white-space:nowrap">Design more</span><span style="display:block;white-space:nowrap">Risk less</span><span style="display:block;white-space:nowrap" class="h1-light">Grow faster</span></h1>
+        <p class="subtext">
+          Design with conviction. Test with your audience.<br>
+          <strong>Scale only what sells</strong>
+        </p>
+        <div class="hero-cta">
+          <a href="#" class="btn-primary">See how</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="dts-flow">
+
+          <!-- Step labels -->
+          <div class="dts-header-row">
+            <div class="dts-step-label">
+              <span class="dts-step-name">Design</span>
+              <span class="dts-step-sub">explore ideas</span>
+            </div>
+            <div></div>
+            <div class="dts-step-label">
+              <span class="dts-step-name">Test</span>
+              <span class="dts-step-sub">validate demand</span>
+            </div>
+            <div></div>
+            <div class="dts-step-label">
+              <span class="dts-step-name">Scale</span>
+              <span class="dts-step-sub">scale production</span>
+            </div>
+          </div>
+
+          <!-- Panels -->
+          <div class="dts-panel-row">
+
+            <div class="dts-panel">
+              <img src="cases/images/closet-01.png" alt="Design in CLOSET" loading="lazy">
+            </div>
+
+            <div class="dts-panel-arrow">→</div>
+
+            <div class="dts-panel dts-panel--test">
+              <div class="dts-metric">
+                <span class="dts-metric-val">24.6k</span>
+                <span class="dts-metric-lbl">Impressions</span>
+              </div>
+              <div class="dts-metric-line"></div>
+              <div class="dts-metric">
+                <span class="dts-metric-val">8.2%</span>
+                <span class="dts-metric-lbl">Click-through</span>
+              </div>
+              <div class="dts-metric-line"></div>
+              <div class="dts-metric">
+                <span class="dts-metric-val">186</span>
+                <span class="dts-metric-lbl">Pre-orders</span>
+              </div>
+              <div class="dts-demand-tag">↗ Demand confirmed</div>
+            </div>
+
+            <div class="dts-panel-arrow">→</div>
+
+            <div class="dts-panel">
+              <img src="cases/images/closet-04.png" alt="Scale and automate" loading="lazy">
+            </div>
+
+          </div>
+
+          <!-- Loop connector -->
+          <div class="dts-loop">
+            <div class="dts-loop-line"></div>
+            <span class="dts-loop-label">only scale what the market confirmed</span>
+            <div class="dts-loop-line"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── SECTION 2+3: Problem narrative ── -->
+    <section class="narrative-v2">
+      <div class="narr-inner">
+
+        <!-- Part A: The Problem -->
+        <p class="narr-eyebrow">The real risk</p>
+        <h2 class="narr-headline"><span style="display:block;white-space:nowrap">Every season starts with a blind bet</span></h2>
+        <p class="narr-subline">Months of commitment before a single customer has seen the product. It worked till it didn't.</p>
+
+        <!-- Stat block: dark card -->
+        <div class="narr-stat-block">
+          <div class="narr-stat-left">
+            <span class="narr-stat-num">40</span>
+            <span class="narr-stat-unit">weeks</span>
+            <p class="narr-stat-desc">average time between design commitment and market response</p>
+          </div>
+          <div class="narr-flow-viz">
+            <span class="nflow-label">The window brands are betting on</span>
+            <div class="nflow-track">
+              <span class="nflow-node">Bulk order placed</span>
+              <div class="nflow-gap-wrap">
+                <span class="nflow-gap-label">demand unknown</span>
+                <div class="nflow-gap-line"></div>
+              </div>
+              <span class="nflow-node">Product hits market</span>
+            </div>
+            <p class="nflow-caption">Months of commitment before a single customer has seen it.</p>
+          </div>
+        </div>
+
+        <!-- Three costs -->
+        <div class="narr-costs">
+          <div class="narr-cost-item">
+            <span class="cost-num">01</span>
+            <p class="cost-text">Overstock builds</p>
+          </div>
+          <div class="narr-cost-item">
+            <span class="cost-num">02</span>
+            <p class="cost-text">Markdowns follow</p>
+          </div>
+          <div class="narr-cost-item">
+            <span class="cost-num">03</span>
+            <p class="cost-text">Collections designed to be safe — never bold</p>
+          </div>
+        </div>
+
+        <!-- Part B: The Winners -->
+        <hr class="narr-divider-line">
+        <h2 class="narr-winners-head"><span style="display:block;white-space:nowrap">You weren't out-designed.</span><span style="display:block;white-space:nowrap">You were out-paced.</span></h2>
+
+        <div class="narr-speeds">
+          <div class="nspeed-row">
+            <span class="nspeed-name">Traditional brand model</span>
+            <div class="nspeed-track"><div class="nspeed-fill" style="width:100%"></div></div>
+            <span class="nspeed-weeks">50 weeks</span>
+          </div>
+          <div class="nspeed-row">
+            <span class="nspeed-name">Amazon Fashion</span>
+            <div class="nspeed-track"><div class="nspeed-fill" style="width:26%"></div></div>
+            <span class="nspeed-weeks">13 weeks</span>
+          </div>
+          <div class="nspeed-row">
+            <span class="nspeed-name">Shein</span>
+            <div class="nspeed-track"><div class="nspeed-fill" style="width:12%"></div></div>
+            <span class="nspeed-weeks">6 weeks</span>
+          </div>
+        </div>
+
+        <div class="narr-insights-grid">
+          <div class="narr-insight-item">
+            <p>They used their community to test demand before committing to scale.</p>
+          </div>
+          <div class="narr-insight-item">
+            <p>Speed changed everything — not because of technology, but because of process.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: Opportunity ── -->
+    <section class="opp-v2">
+      <div class="opp-v2-inner">
+
+        <p class="opp-v2-eyebrow">The advantage you already have</p>
+        <h2 class="opp-v2-headline">Shein cracked speed.<br>They never cracked quality.</h2>
+        <div class="opp-v2-close">
+          <span class="opp-v2-close-label">The opportunity</span>
+          <p class="opp-v2-close-statement">Your brand strength, at the speed of demand — nobody has built that yet</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── STRIP SECTION ── -->
+    <section class="strip-section">
+      <div class="strip-inner">
+
+        <p class="strip-eyebrow">What we remove</p>
+
+        <div class="strip-lines">
+          <div class="strip-line">
+            <span class="strip-word">Strip</span>
+            <span class="strip-pain">misinterpretation between design and factory</span>
+          </div>
+          <div class="strip-line">
+            <span class="strip-word">Strip</span>
+            <span class="strip-pain">sample rounds</span>
+          </div>
+          <div class="strip-line">
+            <span class="strip-word">Strip</span>
+            <span class="strip-pain">early commitment</span>
+          </div>
+          <div class="strip-line">
+            <span class="strip-word">Strip</span>
+            <span class="strip-pain">endless design reviews</span>
+          </div>
+          <div class="strip-line strip-line--payoff">
+            <span class="strip-word">Stop</span>
+            <span class="strip-pain">margins stripping your design</span>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: Design → Sell → Make ── -->
+    <section class="dsm">
+      <div class="dsm-inner">
+
+        <div class="dsm-header">
+          <p class="section-eyebrow">The model</p>
+          <h2 class="dsm-headline">Design — Test — Scale</h2>
+          <p class="dsm-subhead">A better sequence. Not a new process.</p>
+        </div>
+
+        <div class="dsm-steps">
+          <div class="dsm-step">
+            <span class="dsm-num">01</span>
+            <h3 class="dsm-step-name">Design</h3>
+            <p class="dsm-step-desc">Build the product digitally with your brand DNA and real supplier data — without committing a single unit to production.</p>
+          </div>
+          <div class="dsm-step">
+            <span class="dsm-num">02</span>
+            <h3 class="dsm-step-name">Test</h3>
+            <p class="dsm-step-desc">Take it to your audience. Let real demand — not a forecast — tell you what to make and how many.</p>
+          </div>
+          <div class="dsm-step">
+            <span class="dsm-num">03</span>
+            <h3 class="dsm-step-name">Scale</h3>
+            <p class="dsm-step-desc">Produce only what the market has already confirmed. Less risk. More conviction. Better product.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECTION: The Real Shift ── -->
+    <section class="shift-section">
+      <div class="shift-inner">
+
+        <p class="shift-eyebrow">What this unlocks</p>
+        <h2 class="shift-headline">The upside isn't just better margins.<br>It's better product.</h2>
+        <p class="shift-subline">When the process covers your risk, you stop making safe decisions.</p>
+
+        <div class="shift-compare">
+          <div class="shift-col">
+            <span class="shift-col-label">Without this model</span>
+            <ul class="shift-col-list">
+              <li>Collections stripped back to reduce risk</li>
+              <li>Safe colourways, safe silhouettes</li>
+              <li>Margin spent on markdown, not product</li>
+              <li>Designs that won't offend anyone — or excite them</li>
+            </ul>
+          </div>
+          <div class="shift-col shift-col--new">
+            <span class="shift-col-label">With Design — Test — Scale</span>
+            <ul class="shift-col-list">
+              <li>Go all in on brand — the process is your safety net</li>
+              <li>Products that tell your story, not hedge it</li>
+              <li>Icons, not fillers — built on confirmed demand</li>
+              <li>Creative freedom backed by commercial certainty</li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ── SECTION 5b: What we build ── -->
+    <section class="system">
+      <div class="system-inner">
+
+        <div class="system-header">
+          <p class="section-eyebrow system-eyebrow">What we build</p>
+          <h2 class="system-headline">Three capabilities.<br>One connected system.</h2>
+        </div>
+
+        <div class="system-pillars">
+
+          <div class="system-pillar">
+            <span class="system-num">01</span>
+            <h3 class="system-pillar-name">Product<br>intelligence</h3>
+            <p class="pillar-teaser">Know what you're making</p>
+            <p class="system-pillar-desc">Structure product data so every decision has context.</p>
+          </div>
+
+          <div class="system-pillar">
+            <span class="system-num">02</span>
+            <h3 class="system-pillar-name">Connected<br>workflows</h3>
+            <p class="pillar-teaser">Stop doing work twice</p>
+            <p class="system-pillar-desc">Connect tools and teams so information flows automatically.</p>
+          </div>
+
+          <div class="system-pillar">
+            <span class="system-num">03</span>
+            <h3 class="system-pillar-name">Connected<br>production</h3>
+            <p class="pillar-teaser">From data to production, directly</p>
+            <p class="system-pillar-desc">A digital front door into your supply chain.</p>
+          </div>
+
+        </div>
+
+        <p class="system-unlock">Each capability works standalone — and that's often how we start. Activate all three and Design — Test — Scale becomes a real operating model, not just an ambition.</p>
+
+        <div class="system-works">
+          <p class="system-works-label">Works with</p>
+          <div class="system-works-names">
+            <span>CLO</span>
+            <span>Browzwear</span>
+            <span>Fermat</span>
+            <span>VibeIQ</span>
+            <span>Trasix</span>
+            <span>MIRO</span>
+          </div>
+        </div>
+
+        <p class="system-footer">Powered by product data.</p>
+
+      </div>
+    </section>
+
+    <!-- ── PROOF STRIP ── -->
+    <section class="proof-strip">
+      <div class="proof-strip-inner">
+        <p class="proof-strip-label">Automation running at</p>
+        <div class="proof-strip-names">
+          <span>Levi's</span>
+          <div class="proof-strip-divider"></div>
+          <span>Hugo Boss</span>
+          <div class="proof-strip-divider"></div>
+          <span>L.L.Bean</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STIEGLITZ CASE TEASER ── -->
+    <section class="case-teaser">
+      <div class="case-teaser-inner">
+
+        <div class="case-teaser-left">
+          <p class="case-teaser-eyebrow">Full model — live now</p>
+          <h2 class="case-teaser-brand">Stieglitz</h2>
+          <p class="case-teaser-desc">A brand with a strong point of view and an audience that cares — running Design — Test — Scale as their operating model. We're building it live and sharing the journey.</p>
+          <a href="#" class="case-teaser-link">Follow the build →</a>
+        </div>
+
+        <div class="case-teaser-right">
+          <div class="case-pillar">
+            <span class="case-pillar-num">01</span>
+            <span class="case-pillar-name">Brand DNA</span>
+            <span class="case-pillar-status">In progress</span>
+          </div>
+          <div class="case-pillar">
+            <span class="case-pillar-num">02</span>
+            <span class="case-pillar-name">Automated operations</span>
+            <span class="case-pillar-status">In progress</span>
+          </div>
+          <div class="case-pillar">
+            <span class="case-pillar-num">03</span>
+            <span class="case-pillar-name">Supplier connect</span>
+            <span class="case-pillar-status">In progress</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section">
+      <div class="cta-frame">
+        <div class="cta-inner">
+          <p class="cta-pre">No platform. No lock-in. No distance from the work.</p>
+          <p class="cta-headline">Design more. Risk less.<br>Start this season</p>
+          <div class="cta-btn-row">
+            <a href="about.html#contact" class="cta-btn-et">Schedule a call</a>
+            <a href="insights.html" class="cta-link-soft">Read more insights</a>
+            <a href="https://www.linkedin.com/company/enhancethat" target="_blank" class="cta-btn-et">Follow us on LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="design%20ellements/Logo/ETLogoWhite.png" alt="EnhanceThat" height="26">
+      <p class="footer-copy">© 2026 EnhanceThat</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.change-toggle');
+    toggle.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.val;
+        toggle.dataset.active = val;
+        toggle.querySelectorAll('.toggle-btn').forEach(b => {
+          b.classList.toggle('toggle-btn--active', b.dataset.val === val);
+        });
+      });
+    });
+  </script>
+
+
+</body>
+</html>

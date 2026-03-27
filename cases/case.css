@@ -1,0 +1,251 @@
+/* ── CASE STUDY PAGE ── */
+
+/* Shared reading column */
+:root {
+  --case-col: 720px;
+}
+
+/* ── Hero ── */
+
+.case-hero {
+  background-color: var(--black);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem 4rem;
+}
+
+.case-back {
+  display: inline-block;
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.15s ease;
+}
+
+.case-back:hover { color: var(--fg); }
+
+.case-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.case-tag-type {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.case-tool-line {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 1.25rem;
+}
+
+.case-headline {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: var(--ls-tight);
+  color: var(--sand);
+  max-width: var(--case-col);
+  margin-bottom: 1.5rem;
+}
+
+.case-subhead {
+  font-family: 'Domaine Display', serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--fg-muted);
+  max-width: var(--case-col);
+  margin-bottom: 1.25rem;
+}
+
+.case-context {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(238,237,234,0.35);
+  letter-spacing: 0.02em;
+}
+
+/* ── Sections ── */
+
+.case-section--dark {
+  background-color: var(--black);
+  border-top: 1px solid var(--border);
+}
+
+.case-section--sand {
+  background-color: var(--sand);
+  border-top: 1px solid rgba(32,32,32,0.08);
+}
+
+.case-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2.5rem;
+}
+
+.case-eyebrow {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 1.5rem;
+}
+
+.case-section--sand .case-eyebrow {
+  color: var(--black);
+  opacity: 1;
+}
+
+.case-h2 {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: var(--ls-tight);
+  color: var(--sand);
+  margin-bottom: 2rem;
+  max-width: var(--case-col);
+}
+
+.case-section--sand .case-h2 { color: var(--black); }
+
+.case-body {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  max-width: var(--case-col);
+  margin-bottom: 1.25rem;
+}
+
+.case-section--sand .case-body { color: rgba(32,32,32,0.7); }
+
+/* ── Three beats ── */
+
+.case-beats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+.case-beat {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  max-width: var(--case-col);
+}
+
+.case-beat-num {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--pink);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.case-beat-title {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  letter-spacing: var(--ls-tight);
+  color: var(--sand);
+  margin-bottom: 1.25rem;
+}
+
+.case-beat-body {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  margin-bottom: 1rem;
+}
+
+.case-beat-pull {
+  font-family: 'Domaine Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: rgba(238,237,234,0.45);
+  border-left: 2px solid var(--pink);
+  padding-left: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Impact list ── */
+
+.case-impact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: var(--case-col);
+  margin-top: 1rem;
+}
+
+.case-impact-list li {
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.case-impact-list li strong {
+  color: var(--sand);
+  font-weight: 700;
+}
+
+/* ── Images ── */
+
+.case-image-full {
+  width: 100%;
+  border-top: 1px solid var(--border);
+}
+
+.case-image-full img {
+  width: 100%;
+  display: block;
+}
+
+.case-beat-img {
+  width: 100%;
+  display: block;
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+}
+
+.case-image-contained {
+  width: 100%;
+  display: block;
+  margin-top: 3rem;
+  border: 1px solid rgba(32,32,32,0.12);
+}
