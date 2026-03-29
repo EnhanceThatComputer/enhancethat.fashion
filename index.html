@@ -65,9 +65,12 @@
       gap: 0.45rem;
       color: rgba(32,32,32,0.35);
       cursor: default;
-      font-size: inherit;
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
     }
-    .header-cta { border-color: rgba(32,32,32,0.25) !important; color: var(--black) !important; }
+    .header-cta { border-color: rgba(32,32,32,0.25) !important; color: var(--black) !important; margin-left: auto; }
     .header-cta:hover { background: var(--black) !important; color: var(--off-white) !important; }
 
     /* ─── HERO ─── */
@@ -132,6 +135,7 @@
       cursor: pointer;
       align-self: center;
       transition: opacity 0.15s;
+      margin-bottom: 2.5rem;
     }
     .btn-hero:hover { opacity: 0.82; }
     .hero-right { position: relative; overflow: hidden; }
@@ -179,7 +183,7 @@
     }
 
     /* Timeline */
-    .timeline { margin-bottom: 4rem; }
+    .timeline { margin-bottom: 4rem; position: relative; }
     .timeline-track {
       display: flex;
       align-items: center;
@@ -228,10 +232,13 @@
       box-shadow: -10px 0 0 var(--black), 10px 0 0 var(--black);
     }
     .tl-consequences {
+      position: absolute;
+      left: 50%;
+      bottom: 1.5rem;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 1.5rem;
       gap: 0.3rem;
     }
     .tl-consequences span {
@@ -269,6 +276,7 @@
       max-width: 640px;
       margin: 0 auto 2.5rem;
       text-align: left;
+      align-items: end;
     }
     .speed-col {
       display: flex;
@@ -281,6 +289,7 @@
       font-weight: 700;
       color: var(--off-white);
       margin-bottom: 0.4rem;
+      margin-top: auto;
     }
     .speed-num {
       font-weight: 800;
@@ -326,11 +335,14 @@
     .opp-statement {
       background: var(--black);
       border: none;
-      padding: 1.1rem 1.5rem;
+      padding: 1.1rem 2rem;
       margin: 2rem 0 4rem;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       border-radius: 8px;
+      box-sizing: border-box;
     }
     .opp-statement p {
       font-weight: 800;
@@ -339,6 +351,8 @@
       letter-spacing: 0.02em;
       line-height: 1.08;
       text-align: center;
+      white-space: nowrap;
+      margin: 0;
     }
     .opp-body {
       display: grid;
@@ -350,34 +364,6 @@
     }
     /* Nested rectangle diagram */
     .brand-diagram { display: block; }
-    .bd-rect {
-      border: 2.5px solid #202020;
-      padding: 1.1rem 1.4rem;
-      position: relative;
-    }
-    .bd-rect--outer { aspect-ratio: 1; }
-    .bd-rect--mid {
-      position: absolute;
-      bottom: -2.5px;
-      left: -2.5px;
-      width: 78%;
-      aspect-ratio: 1;
-    }
-    .bd-rect--inner {
-      position: absolute;
-      bottom: -2.5px;
-      left: -2.5px;
-      width: 78%;
-      aspect-ratio: 1;
-    }
-    .bd-label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      color: rgba(32,32,32,0.85);
-      margin-bottom: 0.85rem;
-    }
     .opp-model-eyebrow {
       font-size: 0.94rem;
       font-weight: 800;
@@ -472,8 +458,10 @@
     /* ─── HOW IT WORKS (oat) — DSM cards ─── */
     .how-it-works {
       background: var(--sand);
-      padding: var(--sv) var(--ph);
+      padding: var(--sv) var(--ph) 0;
       border-top: 1px solid rgba(32,32,32,0.08);
+      position: relative;
+      z-index: 2;
     }
     .hiw-inner {
       max-width: var(--content-w);
@@ -494,6 +482,8 @@
       justify-content: center;
       gap: 6rem;
       align-items: stretch;
+      position: relative;
+      z-index: 2;
     }
     .dsm-col {
       display: flex;
@@ -525,6 +515,7 @@
       display: flex;
       flex-direction: column;
       flex: 1;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.14);
     }
     .dsm-img-wrap {
       width: 100%;
@@ -557,32 +548,48 @@
     }
     .dsm-connector {
       width: 1px;
-      height: 22px;
-      background: rgba(32,32,32,0.15);
+      height: 4rem;
+      background: var(--black);
       margin: 0 auto;
       flex-shrink: 0;
     }
-    .dsm-bar {
-      text-align: center;
-      padding: 1rem 1.5rem;
-      width: calc(540px + 12rem);
-      margin: 0 auto;
+    .dsm-bar { display: none; }
+
+    /* ─── BRAND INTELLIGENCE PLATFORM ─── */
+    .bi-platform {
       background: var(--black);
-      border-radius: 12px;
+      padding: var(--sv) var(--ph);
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
-    .dsm-bar-title {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 400;
-      color: var(--off-white);
-      letter-spacing: 0;
+    .bi-platform-inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
     }
-    .dsm-bar-sub {
-      display: block;
-      font-size: 0.88rem;
+    .bi-eyebrow {
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--off-white);
-      margin-top: 0.15rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+    }
+    .bi-headline {
+      font-size: clamp(2.5rem, 5.5vw, 5rem);
+      font-weight: 800;
+      color: var(--sand);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .bi-sub {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      font-weight: 400;
+      color: rgba(238,237,234,0.55);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
     }
 
 
@@ -590,7 +597,6 @@
     .what-we-build {
       background: var(--sand);
       padding: var(--sv) var(--ph);
-      border-top: 1px solid rgba(32,32,32,0.08);
     }
     .wwb-inner {
       max-width: var(--content-w);
@@ -663,7 +669,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(32,32,32,0.28);
+      color: rgba(32,32,32,0.55);
       text-align: center;
       margin-bottom: 2.5rem;
     }
@@ -682,7 +688,7 @@
     .marquee-track img {
       height: 22px;
       width: auto;
-      filter: grayscale(1) opacity(0.28);
+      filter: grayscale(1) opacity(0.65);
       flex-shrink: 0;
     }
     @keyframes marquee {
@@ -835,68 +841,131 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 768px) {
+
       :root {
-        --ph: 1.25rem;
         --sv: 4rem;
+        --ph: 1.25rem;
       }
 
       /* NAV */
-      nav { display: none; }
-      .header-inner { gap: 0; }
+      header { padding: 0 var(--ph); }
+      .header-inner { gap: 0.75rem; }
+      .header-inner nav { display: none; }
 
       /* HERO */
-      .hero { padding: 0 var(--ph); }
-      .hero-inner {
-        flex-direction: column;
-        min-height: auto;
-        padding-bottom: 3rem;
+      .hero-left {
+        padding-top: clamp(2rem, 10vh, 3.5rem);
+        text-align: center;
       }
-      .hero-left { padding-top: 2.5rem; }
-      .hero-right { display: none; }
-      .hero-headline { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+      .hero-headline {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+      }
 
-      /* PROBLEM TIMELINE — horizontal scroll to preserve layout */
-      .timeline { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .timeline-track { min-width: 480px; }
+      /* PROBLEM — timeline */
+      .timeline-track {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .tl-line {
+        width: 2px;
+        height: 120px;
+        flex: none;
+        margin: 0;
+      }
+      .tl-drop {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      /* consequences flow after Consumer response on mobile */
+      .tl-consequences {
+        position: static;
+        transform: none;
+        margin-top: 2.5rem;
+        width: 100%;
+        text-align: center;
+      }
+      .tl-consequences span {
+        white-space: normal;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .tl-label { white-space: normal; text-align: center; }
 
-      /* SPEED GRID */
-      .speed-grid { grid-template-columns: 1fr; gap: 1.5rem; max-width: 200px; }
+      /* speed grid */
+      .speed-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.75rem;
+        max-width: 100%;
+      }
+      .speed-hl { font-size: clamp(1.4rem, 6vw, 2rem); }
+      .speed-sub br { display: none; }
 
       /* OPPORTUNITY */
-      .opp-statement, .opp-statement p { white-space: normal; }
-      .opp-body { grid-template-columns: 1fr; gap: 2.5rem; }
-
-      /* Brand diagram — tighten padding so labels don't overlap nested boxes */
+      .opp-statement p {
+        font-size: clamp(1rem, 4.5vw, 1.4rem);
+        white-space: normal;
+      }
+      .opp-body {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 100%;
+      }
       .brand-diagram { max-width: 220px; margin: 0 auto; }
-      .bd-rect { padding: 0.5rem 0.7rem; }
-      .bd-label { font-size: 0.65rem; margin-bottom: 0.35rem; }
 
       /* THE SHIFT */
       .shift-flow { max-width: 100%; }
+      .ft-box { padding: 0.65rem 0.5rem; font-size: 0.68rem; }
 
-      /* HOW IT WORKS — DSM */
+      /* HOW IT WORKS — vertical stack */
+      .hiw-hl { font-size: clamp(1.4rem, 6vw, 2rem); margin-bottom: 2rem; }
       .dsm-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
       }
-      .dsm-col { width: 100%; max-width: 300px; }
-      .dsm-bar { width: 100%; }
+      .dsm-col {
+        width: 100%;
+        align-items: center;
+      }
+      .dsm-col-name, .dsm-col-sub { width: 100%; text-align: center; }
+      .dsm-img-wrap { aspect-ratio: 4/3; }
+      .dsm-connector { display: none; }
+      .dsm-bar {
+        width: 100%;
+        border-radius: 10px;
+      }
 
       /* WHAT WE BUILD */
-      .wwb-grid { grid-template-columns: 1fr; }
-      .wwb-hl { font-size: clamp(2rem, 7vw, 3rem); }
-      .wwb-sub { font-size: clamp(1.3rem, 5vw, 2rem); margin-bottom: 2rem; }
+      .wwb-hl { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+      .wwb-sub { font-size: clamp(1.1rem, 5vw, 1.8rem); margin-bottom: 2rem; }
+      .wwb-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .wwb-card { padding: 1.5rem; }
+      .wwb-num { font-size: 3rem; margin-bottom: 1rem; }
+      .wwb-name { font-size: 1.5rem; }
 
       /* STIEGLITZ */
-      .stieg-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .stieg-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
 
       /* CTA */
-      .cta-section { padding: 5rem var(--ph); }
-      .cta-hl { font-size: clamp(2.2rem, 8vw, 3.5rem); margin-bottom: 2rem; }
+      .cta-hl { font-size: clamp(2rem, 8vw, 3.5rem); }
 
       /* FOOTER */
-      .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .footer-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -949,14 +1018,14 @@
           <div class="tl-line">
             <div class="tl-drop">
               <span class="tl-mid">Demand unknown</span>
-              <div class="tl-consequences">
-                <span>Inventory builds</span>
-                <span>Discounting follows</span>
-                <span>Margin takes the hit</span>
-              </div>
             </div>
           </div>
           <span class="tl-label">Consumer<br>response</span>
+        </div>
+        <div class="tl-consequences">
+          <span>Inventory builds</span>
+          <span>Discounting follows</span>
+          <span>Margin takes the hit</span>
         </div>
       </div>
 
@@ -999,21 +1068,24 @@
       </div>
       <div class="opp-body">
         <div class="brand-diagram">
-          <div class="bd-rect bd-rect--outer">
-            <span class="bd-label">Demand</span>
-            <div class="bd-rect bd-rect--mid">
-              <span class="bd-label">Audience</span>
-              <div class="bd-rect bd-rect--inner">
-                <span class="bd-label" style="margin-bottom:0">Brand</span>
-              </div>
-            </div>
-          </div>
+          <svg viewBox="-3 -3 246 246" xmlns="http://www.w3.org/2000/svg" width="100%" style="display:block; max-width:300px;">
+            <!-- Outer: Demand -->
+            <rect x="0" y="0" width="240" height="240" fill="none" stroke="#202020" stroke-width="2.5"/>
+            <text x="12" y="22" font-family="'Innovator Grotesk', sans-serif" font-size="14" font-weight="800" letter-spacing="0.02em" fill="#202020">Demand</text>
+            <!-- Mid: Audience (78% = 187.2, bottom-left aligned) -->
+            <rect x="0" y="52.8" width="187.2" height="187.2" fill="none" stroke="#202020" stroke-width="2.5"/>
+            <text x="12" y="74" font-family="'Innovator Grotesk', sans-serif" font-size="14" font-weight="800" letter-spacing="0.02em" fill="#202020">Audience</text>
+            <!-- Inner: Brand (78% of mid = 146, bottom-left aligned) -->
+            <rect x="0" y="94" width="146" height="146" fill="none" stroke="#202020" stroke-width="2.5"/>
+            <text x="12" y="116" font-family="'Innovator Grotesk', sans-serif" font-size="14" font-weight="800" letter-spacing="0.02em" fill="#202020">Brand</text>
+          </svg>
         </div>
         <div>
           <span class="opp-model-eyebrow">Brand led model</span>
-          <p class="opp-model-text">This model gives you the freedom to design without early commitment.<br>You use your audience to validate ideas before you invest.</p>
-          <p class="opp-model-text">When something resonates, you scale it.<br>When it doesn't, you move on.</p>
-          <p class="opp-model-text">That's how you focus on what works, reduce risk, and protect your margin.</p>
+          <p class="opp-model-text">Design without early commitment.</p>
+          <p class="opp-model-text">Use your audience to validate ideas before you invest.</p>
+          <p class="opp-model-text">When something resonates, scale it.<br>When it doesn't, move on.</p>
+          <p class="opp-model-text">That's how you focus on what works, reduce risk, and protect margin.</p>
         </div>
       </div>
     </div>
@@ -1102,10 +1174,15 @@
           <div class="dsm-connector"></div>
         </div>
       </div>
-      <div class="dsm-bar">
-        <span class="dsm-bar-title">Brand Intelligence</span>
-        <span class="dsm-bar-sub">Design, sell and make what works</span>
-      </div>
+    </div>
+  </section>
+
+  <!-- BRAND INTELLIGENCE PLATFORM -->
+  <section class="bi-platform">
+    <div class="bi-platform-inner">
+      <p class="bi-eyebrow">Brand Intelligence</p>
+      <h2 class="bi-headline">The system behind<br>Design — Test — Scale</h2>
+      <p class="bi-sub">One connected platform that links your design process, your audience, and your supply chain — so you only make what sells.</p>
     </div>
   </section>
 
@@ -1176,7 +1253,7 @@
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-inner">
-      <h2 class="cta-hl">Design more. Risk less.<br>Start this season</h2>
+      <h2 class="cta-hl">Design more.<br>Risk less.<br>Start this season</h2>
       <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" class="btn-cta">Schedule a call</a>
     </div>
   </section>
