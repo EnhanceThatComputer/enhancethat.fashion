@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-📄 Claude Input — Website Summary (EnhanceThat)
+📄 Claude Input - Website Summary (EnhanceThat)
 
 Context
 
