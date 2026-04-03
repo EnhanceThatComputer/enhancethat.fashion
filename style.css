@@ -890,7 +890,7 @@ h1 .h1-light {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--pink);
+  color: var(--white);
 }
 
 /* Override on sand sections */
@@ -1700,11 +1700,11 @@ h1 .h1-light {
 }
 
 .about-headline {
-  font-family: 'Domaine Display', serif;
-  font-weight: 400;
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  line-height: 1.0;
-  letter-spacing: -0.02em;
+  font-family: 'Innovator Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: var(--text-lg);
+  line-height: 1.05;
+  letter-spacing: var(--ls-tight);
   color: var(--sand);
   margin: 0;
 }
@@ -1722,7 +1722,7 @@ h1 .h1-light {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--pink);
+  color: var(--white);
 }
 
 .about-hero-descriptor {
@@ -1771,7 +1771,7 @@ h1 .h1-light {
   line-height: var(--text-body-lh);
   color: var(--sand);
   font-weight: 700;
-  border-left: 2px solid var(--pink);
+  border-left: 2px solid var(--white);
   padding-left: 1.25rem;
 }
 
