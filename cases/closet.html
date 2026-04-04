@@ -1,17 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLOSET & PLM Automation - Connected Brand Logic in Action - EnhanceThat</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnhanceThat — Case Study 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EDECEA;
+    --ink: #0A0A0A;
+    --soft: #444440;
+    --softer: #888882;
+    --blue: #1A5CFF;
+    --white: #FFFFFF;
+    --bord: #D4D2CE;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+  
+  /* ── LAYOUT ── */
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 100px;
+    border-bottom: 1px solid var(--bord);
+    position: relative;
+  }
+  .slide:last-child { border-bottom: none; }
+
+  /* ── LABELS ── */
+  .label {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin-bottom: 32px;
+    align-self: flex-start;
+  }
+
+  /* ── PILLS ── */
+  .pills { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+  .pill {
+    background: var(--ink);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 6px;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .pre-heading {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+  .body-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--soft);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 16px;
+  }
+  .bold-line {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  .slide-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 100px;
+    right: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--softer);
+    letter-spacing: 0.04em;
+  }
+  .et-badge {
+    width: 32px; height: 32px;
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; letter-spacing: 0;
+  }
+
+  /* ── SLIDE 1: COVER ── */
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .stat-block {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 40px 44px;
+  }
+  .stat-num {
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .stat-num span { background: var(--blue); padding: 0 6px; }
+  .stat-desc {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  /* ── SLIDE 2: CHALLENGES ── */
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .prob-list { display:flex; flex-direction:column; gap:0; }
+  .prob-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--bord);
+    align-items: start;
+  }
+  .prob-item:first-child { border-top: 1px solid var(--bord); }
+  .prob-num {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--bord);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .prob-item h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: -0.01em;
+  }
+  .prob-item p { font-size: 14px; color: var(--soft); line-height: 1.6; }
+  .screen-box {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,.14);
+  }
+  .screen-box img { width:100%; display:block; }
+  .screen-cap {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 14px;
+  }
+  .screen-cap span { font-weight: 400; color: var(--soft); display:block; }
+
+  /* ── SLIDE 3: SOLUTION ── */
+  .flow-row {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr 40px 1fr;
+    gap: 0;
+    margin-top: 40px;
+    align-items: start;
+  }
+  .flow-card {
+    background: var(--white);
+    border: 1.5px solid var(--bord);
+    border-radius: 12px;
+    padding: 18px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .flow-card img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    object-position: top;
+  }
+  .flow-card h4 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .flow-card p { font-size: 12px; color: var(--soft); line-height: 1.5; }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    font-size: 22px;
+    color: var(--softer);
+    font-weight: 300;
+  }
+
+  /* ── SLIDE 4: WHAT IS CONNECTED ── */
+  .connected-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 8px;
+  }
+  .conn-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--bord);
+    align-items: start;
+  }
+  .conn-item:first-child { border-top: 1px solid var(--bord); }
+  .conn-label {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .conn-item p { font-size: 14px; color: var(--soft); line-height: 1.7; }
+
+  /* ── SLIDE 5: CTA ── */
+  .cta-slide {
+    background: var(--ink);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .cta-left {
+    padding: 80px 70px 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(255,255,255,.08);
+  }
+  .cta-label {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin-bottom: 32px;
+    align-self: flex-start;
+  }
+  .cta-left h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .cta-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .cta-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .cta-step-num {
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .cta-step-text {
+    font-size: 15px;
+    color: rgba(255,255,255,.75);
+    line-height: 1.5;
+  }
+  .cta-step-text strong { color: var(--white); font-weight: 600; }
+  .cta-speed {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 24px;
+  }
+  .cta-speed strong { color: rgba(255,255,255,.7); }
+
+  .cta-right {
+    padding: 80px 100px 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .contact-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+    margin-bottom: 4px;
+  }
+  .contact-val {
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .contact-val:hover { color: var(--blue); }
+  .divider { height: 1px; background: rgba(255,255,255,.08); }
+  .cta-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,.35);
+    line-height: 1.7;
+    max-width: 320px;
+  }
+  .cta-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 100px;
+    right: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: rgba(255,255,255,.25);
+  }
+  .et-badge-light {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,.1);
+    color: var(--white);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+  }
+
+  @media(max-width:800px) {
+    .slide { padding: 60px 32px; min-height: auto; }
+    .cover-grid,.challenge-grid,.connected-grid,.flow-row { grid-template-columns:1fr; }
+    .conn-item { grid-template-columns:1fr; gap:8px; }
+    .flow-arrow { padding-top:0; }
+    .cta-slide { grid-template-columns:1fr; }
+    .cta-left,.cta-right { padding: 60px 32px; }
+    .slide-footer,.cta-footer { left:32px; right:32px; }
+  }
+
+  /* ── SITE HEADER ── */
+  header {
+    background-color: #202020;
+    border-bottom: 1px solid rgba(238,237,234,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 1.4rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+  }
+  nav { display: flex; gap: 3rem; }
+  nav a {
+    color: rgba(238,237,234,0.75);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s ease;
+  }
+  nav a:hover { color: rgba(238,237,234,1); }
+  .header-cta {
+    justify-self: end;
+    display: inline-block;
+    background-color: transparent;
+    color: rgba(238,237,234,0.9);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid rgba(238,237,234,0.55);
+    border-radius: 7px;
+    transition: border-color 0.15s ease;
+  }
+  .header-cta:hover { border-color: rgba(238,237,234,1); }
+
+  /* ── SITE FOOTER ── */
+  .site-footer {
+    background-color: #202020;
+    border-top: 1px solid #2e2e2e;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(238,237,234,0.4);
+  }
+</style>
   <link rel="icon" href="../images/logo-et.png" type="image/png">
   <link rel="apple-touch-icon" href="../images/logo-et.png">
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="case.css">
   <script defer src="https://cloud.umami.is/script.js" data-website-id="df361236-30bc-42e3-b9f4-6582ea43b87e"></script>
 </head>
 <body>
-
   <header>
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="EnhanceThat Home">
@@ -26,115 +484,186 @@
     </div>
   </header>
 
-  <main>
 
-    <!-- ── CASE HEADER ── -->
-    <section class="case-hero">
-      <div class="case-hero-inner">
-        <a href="../insights.html" class="case-back">← Insights</a>
-        <div class="case-tags">
-          <span class="icard-topic itag-process">Automation</span>
-          <span class="icard-topic itag-brand">Brand &amp; Data</span>
-          <span class="case-tag-type">Case Study</span>
+<!-- ══ SLIDE 1: COVER ══ -->
+<div class="slide" style="min-height:100vh;">
+  <div class="label">Case Study</div>
+  <div class="pills">
+    <div class="pill">CLO</div>
+    <div class="pill">CLOSET</div>
+    <div class="pill">PLM</div>
+    <div class="pill">MIRO</div>
+  </div>
+  <div class="cover-grid">
+    <div>
+      <p class="pre-heading">Stop manual data entry</p>
+      <h1>Create one connected workflow</h1>
+      <p class="body-text">How a contemporary fashion brand eliminated 85% of their manual data entry.</p>
+      <p class="body-text">One automated digital creation pipeline connecting PLM data and Visual Line Planning.</p>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num"><span>85%</span></div>
+      <div class="stat-desc">reduction in<br>manual work</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>EnhanceThat Case 2026</span>
+    <div class="et-badge">ET</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 2: CHALLENGES ══ -->
+<div class="slide">
+  <div class="label">The Challenges</div>
+  <div class="challenge-grid">
+    <div>
+      <h2>Great 3D work trapped in a manual bottleneck</h2>
+      <div class="prob-list">
+        <div class="prob-item">
+          <div class="prob-num">01</div>
+          <div><h4>Manual export &amp; rename</h4><p>Every CLO render required manual export, file renaming, and re-uploading, a repetitive task done dozens of times per week.</p></div>
         </div>
-        <p class="case-tool-line">CLOSET · PLM · Workflow Automation</p>
-        <h1 class="case-headline">When design just flows</h1>
-        <p class="case-subhead">How connecting CLOSET to PLM data - through Brand Logic - eliminated manual handoffs and enabled end-to-end workflow automation across the product creation process.</p>
-        <p class="case-context">Applied across brands from global sportswear to premium European womenswear.</p>
-      </div>
-    </section>
-
-    <!-- ── SITUATION ── -->
-    <section class="case-section case-section--dark">
-      <div class="case-inner">
-        <p class="case-eyebrow">The situation</p>
-        <h2 class="case-h2">CLOSET worked.<br>The connection to PLM didn't.</h2>
-        <p class="case-body">Teams were using CLOSET to save, share, render and review collections. Intuitive, visual - it worked. But what took time was everything around it: making sure styles ended up in the right place, followed brand naming conventions, carried the right product data, were rendered with consistent settings, and then downloaded, renamed and uploaded into every other system that needed them.</p>
-        <p class="case-body">The same data was being entered, re-entered and reformatted at every handoff. Not because the team wasn't capable - because the tools weren't connected.</p>
-        <img class="case-beat-img" src="images/closet-01.png" alt="CLOSET collection overview - styles organised by line plan">
-      </div>
-    </section>
-
-    <!-- ── WHAT WE DID ── -->
-    <section class="case-section case-section--sand">
-      <div class="case-inner">
-        <p class="case-eyebrow">What we did</p>
-        <h2 class="case-h2">Apply Brand Logic upstream.<br>Before decisions are made.</h2>
-        <p class="case-body">The fix wasn't to change how the team worked in CLOSET. It was to connect product data to CLOSET before design decisions were made - so the tool already knew the brand rules, the line plan structure, the naming conventions and the downstream requirements.</p>
-        <p class="case-body">Brand Logic doesn't live in a single tool. It's a layer that sits above them - and once it's connected, every tool in the chain benefits.</p>
-      </div>
-    </section>
-
-    <!-- ── THREE BEATS ── -->
-    <section class="case-section case-section--dark">
-      <div class="case-inner">
-        <p class="case-eyebrow">How it works</p>
-
-        <div class="case-beats">
-
-          <div class="case-beat">
-            <span class="case-beat-num">01</span>
-            <h3 class="case-beat-title">Design directly into the line plan</h3>
-            <p class="case-beat-body">Product data is visible inside CLOSET. Teams design directly into the line plan - not alongside it. Manual file naming and data re-entry between systems disappears. What remains: consistent product data across tools and design freedom inside brand constraints.</p>
-            <img class="case-beat-img" src="images/closet-02.png" alt="Product data flowing into CLOSET - design into line plan">
-          </div>
-
-          <div class="case-beat">
-            <span class="case-beat-num">02</span>
-            <h3 class="case-beat-title">When a design is ready, the system follows</h3>
-            <p class="case-beat-body">A single decision in CLOSET triggers everything teams need to move forward. Designers stay in creative flow. Output continuity improves. Brand rules are managed centrally. Assets inform decisions across teams - automatically, not manually.</p>
-            <p class="case-beat-pull">The settings are different for every brand.<br>The principle stays the same.</p>
-            <img class="case-beat-img" src="images/closet-03.png" alt="A single decision triggers downstream actions across teams">
-          </div>
-
-          <div class="case-beat">
-            <span class="case-beat-num">03</span>
-            <h3 class="case-beat-title">Decide once. The system does the rest.</h3>
-            <p class="case-beat-body">Once a style is marked ready in CLOSET, renders are prepared automatically using brand and milestone presets. Naming, versioning and metadata are applied. Assets appear in Miro, VibeIQ, SharePoint, DAM and PLM without anyone moving a file. Output is production-ready from the moment the decision is made.</p>
-            <img class="case-beat-img" src="images/closet-04.png" alt="Brand Logic connecting CLOSET to Miro, SharePoint, DAM and PLM">
-          </div>
-
+        <div class="prob-item">
+          <div class="prob-num">02</div>
+          <div><h4>Disconnected systems</h4><p>CLO, CLOSET, Airtable PLM and Miro all lived in silos. No data flowed between them without human intervention.</p></div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-num">03</div>
+          <div><h4>Errors &amp; version drift</h4><p>Manual copying introduced mismatched style names, wrong images and outdated renders in the lineplan.</p></div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-num">04</div>
+          <div><h4>Delayed time-to-PLM</h4><p>Styles were ready in CLO, but PLM and Miro lagged by days slowing decisions that depended on current data.</p></div>
         </div>
       </div>
-    </section>
-
-    <!-- ── BEFORE / AFTER ── -->
-    <section class="case-section case-section--sand">
-      <div class="case-inner">
-        <p class="case-eyebrow">Workflow zoom out</p>
-        <h2 class="case-h2">The same outcome.<br>Half the steps.</h2>
-
-        <img class="case-image-contained" src="images/closet-05.png" alt="Manual vs connected workflow comparison">
+    </div>
+    <div>
+      <div class="screen-box">
+        <img src="images/closet-new-01.png" alt="CLO + FOCUS">
       </div>
-    </section>
+      <p class="screen-cap">CLO + FOCUS<span>where one action triggers the entire pipeline</span></p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>EnhanceThat Case 2026</span>
+    <div class="et-badge">ET</div>
+  </div>
+</div>
 
-    <!-- ── IMPACT ── -->
-    <section class="case-section case-section--dark">
-      <div class="case-inner">
-        <p class="case-eyebrow">Impact</p>
-        <h2 class="case-h2">What actually changed.</h2>
-        <ul class="case-impact-list">
-          <li>Manual rendering and exporting <strong>replaced by Brand Logic</strong></li>
-          <li>Visuals and data <strong>update automatically</strong> across tools</li>
-          <li><strong>No copying, renaming or re-uploading</strong> - by anyone</li>
-          <li>Images and data <strong>automatically pushed forward</strong> to every downstream system</li>
-        </ul>
+<!-- ══ SLIDE 3: SOLUTION ══ -->
+<div class="slide">
+  <div class="label">The Solution</div>
+  <h2>One action.<br>Everything else is automatic.</h2>
+  <p class="body-text">The designer selects a milestone in FOCUS and triggers the automation.</p>
+  <p class="body-text">The images land in CLOSET, data is pushed to PLM, and in Miro you get to see the PLM data and the Product images from CLOSET.</p>
+  <p class="bold-line">No copying, no renaming, no uploading.</p>
+  <div class="flow-row">
+    <div class="flow-card">
+      <img src="images/closet-new-02.png" alt="CLO + FOCUS">
+      <h4>CLO + FOCUS</h4>
+      <p>Select milestone, define &amp; trigger</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-card">
+      <img src="images/closet-new-03.png" alt="CLOSET">
+      <h4>CLOSET</h4>
+      <p>Styles stored and rendered automatically</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-card">
+      <img src="images/closet-new-04.png" alt="PLM">
+      <h4>PLM</h4>
+      <p>Image pushed to record</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-card">
+      <img src="images/closet-new-05.png" alt="Miro Lineplan">
+      <h4>Miro Lineplan</h4>
+      <p>Lineplan updated live with PLM data and images</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>EnhanceThat Case 2026</span>
+    <div class="et-badge">ET</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 4: WHAT IS CONNECTED ══ -->
+<div class="slide">
+  <div class="label">What Is Connected</div>
+  <div class="connected-grid">
+    <div>
+      <h2>Every system doing what it does best</h2>
+      <div class="screen-box">
+        <img src="images/closet-new-06.png" alt="Miro lineplan">
       </div>
-    </section>
-
-    <!-- ── CTA ── -->
-    <section class="cta-section">
-      <div class="cta-frame">
-        <div class="cta-inner">
-          <p class="cta-pre">Using CLOSET or planning to?</p>
-          <p class="cta-headline">Let's connect it<br>to the rest of your stack.</p>
-          <a href="#" class="cta-btn">Schedule a call</a>
-          <p class="cta-credibility">Built by people who've worked inside Nike, Tommy Hilfiger and Calvin Klein.</p>
-        </div>
+      <p class="screen-cap" style="margin-top:14px;">Miro<span>visual lineplan, always updated.</span></p>
+    </div>
+    <div>
+      <div class="conn-item">
+        <div class="conn-label">CLO &gt; FOCUS &gt; CLOSET</div>
+        <p>When a designer reaches a milestone, FOCUS triggers automatic saving to CLOSET, render, metadata and project context included. No manual export or navigation required.</p>
       </div>
-    </section>
+      <div class="conn-item">
+        <div class="conn-label">CLOSET &gt; PLM</div>
+        <p>CLOSET manages the digital assets. The automation pushes the render into the correct PLM record, enriching product data without human touch.</p>
+      </div>
+      <div class="conn-item">
+        <div class="conn-label">PLM &gt; MIRO</div>
+        <p>The Miro lineplan is automatically updated with the latest approved render and product data, so buyers always see current styles without chasing the design team.</p>
+      </div>
+      <div class="conn-item">
+        <div class="conn-label">Automation Layer</div>
+        <p>EnhanceThat's automation layer orchestrates the data flow — handling matching, formatting and delivery so each tool gets exactly what it needs, every time.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>EnhanceThat Case 2026</span>
+    <div class="et-badge">ET</div>
+  </div>
+</div>
 
-  </main>
+<!-- ══ SLIDE 5: WORK WITH US ══ -->
+<div class="cta-slide" style="position:relative;">
+  <div class="cta-left">
+    <div class="cta-label">Work With Us</div>
+    <h2>Ready to connect your tools?</h2>
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="cta-step-num">1</div>
+        <div class="cta-step-text"><strong>We map your current workflow.</strong> Understanding exactly where time is lost across your tools.</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">2</div>
+        <div class="cta-step-text"><strong>We identify the automation opportunities.</strong> Every manual step that shouldn't exist.</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">3</div>
+        <div class="cta-step-text"><strong>We build and connect.</strong> The automation that makes the manual work disappear.</div>
+      </div>
+    </div>
+    <div class="cta-speed">Most integrations are <strong>live within weeks.</strong></div>
+  </div>
+  <div class="cta-right">
+    <div class="contact-block">
+      <div class="contact-label">Website</div>
+      <a class="contact-val" href="https://enhancethat.fashion">enhancethat.fashion</a>
+    </div>
+    <div class="divider"></div>
+    <div class="contact-block">
+      <div class="contact-label">Email</div>
+      <a class="contact-val" href="mailto:info@enhancethat">info@enhancethat</a>
+    </div>
+    <div class="divider"></div>
+    <p class="cta-tagline">We work with contemporary fashion brands who want their tools to work as hard as their team does.</p>
+  </div>
+  <div class="cta-footer">
+    <span>EnhanceThat Case 2026</span>
+    <div class="et-badge-light">ET</div>
+  </div>
+</div>
+
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -142,6 +671,5 @@
       <p class="footer-copy">© 2026 EnhanceThat</p>
     </div>
   </footer>
-
 </body>
 </html>
