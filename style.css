@@ -1841,19 +1841,18 @@ h1 .h1-light {
   margin-bottom: 2.5rem;
 }
 
-.about-creds-names {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  align-items: baseline;
+.about-creds-logos {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-content: start;
+  gap: 2rem 3.5rem;
+  align-items: center;
 }
 
-.about-creds-names span {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: var(--ls-tight);
-  color: var(--black);
-  opacity: 0.4;
+.about-creds-logos img {
+  height: 16px;
+  width: auto;
+  filter: grayscale(1) opacity(0.5);
 }
 
 .about-follow {
