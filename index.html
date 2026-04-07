@@ -850,7 +850,11 @@
       /* NAV */
       header { padding: 0 var(--ph); }
       .header-inner { gap: 0.75rem; }
-      .header-inner nav { display: none; }
+      .nav-toggle span { background: var(--black) !important; }
+      .mobile-menu nav a { color: var(--black) !important; border-bottom-color: rgba(32,32,32,0.1) !important; }
+      .mobile-menu nav a:first-child { border-top-color: rgba(32,32,32,0.1) !important; }
+      .mobile-menu .mobile-cta { border-color: rgba(32,32,32,0.25) !important; color: var(--black) !important; }
+      .mobile-menu .mobile-cta:hover { background: var(--black) !important; color: var(--off-white) !important; border-color: var(--black) !important; }
 
       /* HERO */
       .hero-left {
@@ -983,6 +987,17 @@
         <a href="about.html">About</a>
       </nav>
       <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" class="header-cta">Schedule a call</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <nav>
+        <a href="#system">What we do</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" class="mobile-cta">Schedule a call</a>
     </div>
   </header>
 
@@ -1361,6 +1376,15 @@
       }
     ]
   }
+  </script>
+
+  <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      const isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      this.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+      document.getElementById('mobileMenu').classList.toggle('is-open');
+    });
   </script>
 </body>
 </html>
