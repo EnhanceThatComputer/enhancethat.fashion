@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnhanceThat — L.L.Bean Case Study</title>
+  <link rel="icon" href="../images/logo-et.png" type="image/png">
+  <link rel="apple-touch-icon" href="../images/logo-et.png">
+  <link rel="stylesheet" href="../fonts.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="df361236-30bc-42e3-b9f4-6582ea43b87e"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F5F2EE;
+      --ink: #1A1A1A;
+      --soft: #4A4A4A;
+      --muted: #7A7A7A;
+      --rule: #C8C4BE;
+      --white: #FFFFFF;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SITE HEADER ── */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1.4rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo { display: flex; align-items: center; justify-self: start; }
+    nav { display: flex; gap: 3rem; }
+    nav a {
+      color: rgba(26,26,26,0.55);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--ink); }
+    .header-cta {
+      justify-self: end;
+      display: inline-block;
+      background: transparent;
+      color: rgba(26,26,26,0.9);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      border: 1px solid rgba(26,26,26,0.25);
+      border-radius: 7px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .header-cta:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+    /* ── PAGE CONTENT ── */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .hero-headline {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: clamp(32px, 5.5vw, 50px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 64px;
+    }
+
+    /* ── HEADINGS ── */
+    h2 {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    /* ── BODY TEXT ── */
+    p {
+      color: var(--soft);
+      margin-bottom: 16px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── RULE ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 64px 0;
+    }
+
+    /* ── PULLQUOTE ── */
+    .pullquote {
+      text-align: center;
+      padding: 0px 0 36px;
+    }
+    .pullquote-text {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .pullquote-attr {
+      font-size: 14px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--soft);
+    }
+
+    /* ── CALLOUT BLOCK ── */
+    .callout {
+      background: var(--white);
+      border-left: 3px solid var(--ink);
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .callout p {
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+    .callout strong { font-weight: 600; }
+
+    /* ── WORKFLOW DIAGRAM ── */
+    .workflow-diagram { margin: 32px 0 12px; }
+    .wf-section-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      font-family: 'Innovator Grotesk', sans-serif;
+    }
+    .wf-row-wrap { overflow-x: auto; }
+    .wf-row {
+      display: flex;
+      align-items: center;
+      padding: 20px 24px;
+      border-radius: 12px;
+      min-width: 460px;
+    }
+    .wf-row--manual {
+      background: var(--white);
+      border: 2px solid var(--ink);
+    }
+    .wf-row--auto { background: #7ECDC4; }
+    .wf-node {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      line-height: 1.35;
+      font-family: 'Innovator Grotesk', sans-serif;
+    }
+    .wf-node--outline {
+      background: transparent;
+      border: 2.5px solid var(--ink);
+      color: var(--ink);
+    }
+    .wf-node--pink { background: #F2B8D4; color: var(--ink); }
+    .wf-line {
+      flex: 1;
+      min-width: 12px;
+      height: 0;
+      position: relative;
+      align-self: center;
+    }
+    .wf-line--dashed { border-top: 2px dashed var(--ink); }
+    .wf-line--arrow { border-top: 2px solid var(--ink); }
+    .wf-line--arrow::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid var(--ink);
+      margin-top: -1px;
+    }
+    .img-caption {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* ── IMPACT GRID ── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 24px;
+    }
+    .stats-box {
+      background: var(--ink);
+      color: var(--white);
+      padding: 28px 24px;
+      border-radius: 4px;
+    }
+    .stat-item {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item:first-child { padding-top: 0; }
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .stat-num {
+      font-family: 'Innovator Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .stat-change {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+    }
+    .experience-chart { display: block; width: 100%; margin-top: 4px; }
+    .impact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .impact-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 15px;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+    .impact-list li:first-child { border-top: 1px solid var(--rule); }
+    .impact-list li strong { color: var(--ink); font-weight: 600; }
+
+    /* ── BULLET LIST ── */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 16px;
+    }
+    .bullet-list li {
+      padding: 14px 0 14px 20px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 15px;
+      color: var(--soft);
+      line-height: 1.6;
+      position: relative;
+    }
+    .bullet-list li:first-child { border-top: 1px solid var(--rule); }
+    .bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+    }
+    .bullet-list li strong { color: var(--ink); font-weight: 600; }
+
+    /* ── CTA LINE ── */
+    .cta-line {
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cta-line p {
+      font-size: 15px;
+      color: var(--soft);
+      margin-bottom: 0;
+    }
+    .cta-line a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+    .cta-line a:hover { opacity: 0.55; }
+
+    /* ── PHOTO ── */
+    .page-photo { margin-top: 64px; }
+    .page-photo img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .photo-caption {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* ── SITE FOOTER ── */
+    .site-footer { background: #202020; border-top: 1px solid #2e2e2e; margin-top: 80px; }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy { font-size: 0.8rem; color: rgba(238,237,234,0.4); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .header-inner { grid-template-columns: 1fr auto; }
+      nav { display: none; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .cta-line { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="EnhanceThat Home">
+        <img src="../images/ETLogoBlack.png" alt="EnhanceThat" height="36">
+      </a>
+      <nav>
+        <a href="../index.html#system">What we do</a>
+        <a href="../insights.html">Insights</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" rel="noopener" class="header-cta">Schedule a call</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrap">
+
+      <!-- HERO -->
+      <section class="hero">
+        <p class="hero-eyebrow">Case Study &nbsp;·&nbsp; L.L.Bean &nbsp;·&nbsp; 2026</p>
+        <h1 class="hero-headline">How L.L.Bean went from manual file handling to a fully connected 3D workflow</h1>
+        <p class="hero-meta">CLO &nbsp;·&nbsp; VibeIQ &nbsp;·&nbsp; Workflow Automation</p>
+      </section>
+
+      <!-- INTRO -->
+      <section class="section">
+        <p>L.L.Bean had invested heavily in Digital Product Creation. The 3D capability was strong. But as adoption scaled, a quieter problem emerged — designers were spending significant time on work that wasn't design.</p>
+        <p>Renaming files. Re-exporting assets. Moving content between tools. Small tasks, but constant ones. Consistency suffered. Confidence in what was flowing into VibeIQ eroded.</p>
+      </section>
+
+      <!-- PULLQUOTE 1 -->
+      <div class="pullquote">
+        <p class="pullquote-text">"There were a lot of little disconnects in the workflow that slowed designers down."</p>
+        <p class="pullquote-attr">Digital Product Creation Lead, L.L.Bean</p>
+      </div>
+
+      <!-- THE CHALLENGE -->
+      <section class="section">
+        <p class="section-label">The Challenge</p>
+        <h2>Scaling 3D meant the manual overhead scaled with it</h2>
+        <p>Scaling 3D across more categories meant the manual overhead scaled with it. File sizes grew. Handoffs multiplied. Most delays weren't coming from rendering — they were coming from everything around it.</p>
+        <p>Designers lost momentum switching between tasks. Leadership couldn't trust that the right assets were in VibeIQ at the right time. The workflow needed to change.</p>
+      </section>
+
+      <!-- WHAT WE FOUND -->
+      <section class="section">
+        <p class="section-label">What We Found</p>
+        <h2>The time study surfaced what everyone suspected but hadn't quantified</h2>
+        <p>EnhanceThat ran a workflow assessment with L.L.Bean's Digital Product Creation and Product teams. Saving, renaming, re-exporting and moving files was consuming far more time than rendering itself.</p>
+
+        <div class="callout">
+          <p>The cost wasn't just hours. Every context switch broke creative momentum. The case for automation was immediate.</p>
+        </div>
+      </section>
+
+      <!-- THE APPROACH -->
+      <section class="section">
+        <p class="section-label">The Approach</p>
+        <h2>One pipeline. Built around how the team actually works.</h2>
+        <p>EnhanceThat built a seamless pipeline connecting CLO, product data and VibeIQ — designed around how L.L.Bean's designers and product teams actually work.</p>
+        <p>Manual handoffs were removed. Naming, exporting and syncing happen automatically. The workflow is fully implemented within L.L.Bean's environment and built to evolve as tools and requirements change. EnhanceThat continues to support it over time.</p>
+
+        <img src="../images/workflow.jpg" alt="Manual vs Automated workflow diagram" style="width:100%; display:block; margin:32px 0 12px; border-radius:4px;">
+        <p class="img-caption">From the L.L.Bean workflow study. Most delays came from saving, naming, re-exporting and manual handovers between tools, rather than from rendering itself.</p>
+      </section>
+
+
+      <!-- THE IMPACT -->
+      <section class="section">
+        <p class="section-label">The Impact</p>
+        <h2>Numbers that changed the conversation</h2>
+
+        <div class="impact-grid">
+          <img src="../images/impact.png" alt="Impact stats — 95% faster, 84% less clicking, improved experience" style="width:100%; display:block; border-radius:4px;">
+          <ul class="impact-list">
+            <li>From 5+ minutes to <strong>16 seconds — 95% faster</strong></li>
+            <li>High quality images in <strong>7 clicks — 84% less clicking</strong></li>
+            <li>Designers spend <strong>more time designing,</strong> less time managing files</li>
+            <li>Assets are <strong>consistent across the workflow,</strong> with a shared visual language</li>
+            <li>VibeIQ receives <strong>clean, structured data</strong> and the latest 3D assets</li>
+            <li>Rework drops. <strong>Confidence in the pipeline goes up.</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PULLQUOTE 2 -->
+      <div class="pullquote">
+        <p class="pullquote-text">"Removing manual handovers helped our designers stay focused on design rather than file management."</p>
+        <p class="pullquote-attr">Digital Product Creation Lead, L.L.Bean</p>
+      </div>
+
+
+      <!-- WHY LLBEAN CHOSE ET -->
+      <section class="section">
+        <p class="section-label">Why L.L.Bean Chose EnhanceThat</p>
+        <h2>Everyone spoke the same language from day one</h2>
+        <p>The team immediately understood both the workflow and the constraints of scaling Digital Product Creation. No lengthy briefing process. Everyone spoke the same language — designers, DPC, Tech, CLO and VibeIQ. EnhanceThat took ownership of the integration end to end, removing coordination overhead for L.L.Bean's internal teams.</p>
+      </section>
+
+      <!-- WHAT IT UNLOCKED -->
+      <section class="section">
+        <p class="section-label">What It Unlocked</p>
+        <ul class="bullet-list">
+          <li><strong>Manual file handling removed</strong> from the core 3D workflow</li>
+          <li><strong>Disconnected tools now run</strong> as a single reliable pipeline</li>
+          <li><strong>Designers are designing more</strong> and managing less</li>
+          <li><strong>Digital Product Creation is positioned to scale</strong> across every category</li>
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-line">
+        <p>Want to remove the manual work from your 3D workflow?</p>
+        <a href="https://outlook.office365.com/owa/calendar/EnhanceThat@enhancethat.fashion/bookings/s/ykcAmlR2zkiMHzfWw-WJLQ2" target="_blank" rel="noopener">Let's talk →</a>
+      </div>
+
+      <!-- PHOTO -->
+      <div class="page-photo">
+        <img src="images/llbean-team.jpg" alt="Dom with the L.L.Bean team on-site during the workflow build">
+        <p class="photo-caption">Dom with the L.L.Bean team, on-site during the workflow build.</p>
+      </div>
+
+    </div><!-- /page-wrap -->
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="../design%20ellements/Logo/ETLogoWhite.png" alt="EnhanceThat" height="26">
+      <p class="footer-copy">© 2026 EnhanceThat</p>
+    </div>
+  </footer>
+
+</body>
+</html>
