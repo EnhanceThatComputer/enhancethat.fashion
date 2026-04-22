@@ -134,7 +134,7 @@
     line-height: 1;
     letter-spacing: -0.03em;
     color: var(--white);
-    margin-bottom: 4px;
+    margin-bottom: 24px;
   }
   .stat-num span { background: var(--blue); padding: 0 6px; }
   .stat-desc {
@@ -195,7 +195,7 @@
     grid-template-columns: 1fr 40px 1fr 40px 1fr 40px 1fr;
     gap: 0;
     margin-top: 40px;
-    align-items: start;
+    align-items: stretch;
   }
   .flow-card {
     background: var(--white);
@@ -399,8 +399,8 @@
 
   /* ── SITE HEADER ── */
   header {
-    background-color: #202020;
-    border-bottom: 1px solid rgba(238,237,234,0.1);
+    background-color: var(--bg);
+    border-bottom: 1px solid rgba(32,32,32,0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -420,31 +420,31 @@
   }
   nav { display: flex; gap: 3rem; }
   nav a {
-    color: rgba(238,237,234,0.75);
+    color: rgba(32,32,32,0.65);
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
     letter-spacing: 0.04em;
-    transition: opacity 0.15s ease;
+    transition: color 0.15s ease;
   }
-  nav a:hover { color: rgba(238,237,234,1); }
+  nav a:hover { color: rgba(32,32,32,1); }
   .header-cta {
     justify-self: end;
     display: inline-block;
     background-color: transparent;
-    color: rgba(238,237,234,0.9);
+    color: rgba(32,32,32,0.9);
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
     letter-spacing: 0.04em;
     text-decoration: none;
     padding: 0.6rem 1.25rem;
-    border: 1px solid rgba(238,237,234,0.55);
+    border: 1px solid rgba(32,32,32,0.25);
     border-radius: 7px;
-    transition: border-color 0.15s ease;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
   }
-  .header-cta:hover { border-color: rgba(238,237,234,1); }
+  .header-cta:hover { background: #202020; color: #F2F0EB; border-color: #202020; }
 
   /* ── SITE FOOTER ── */
   .site-footer {
@@ -473,7 +473,7 @@
   <header>
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="EnhanceThat Home">
-        <img src="../design%20ellements/Logo/ETLogoWhite.png" alt="EnhanceThat" height="36">
+        <img src="../images/ETLogoBlack.png" alt="EnhanceThat" height="36">
       </a>
       <nav>
         <a href="../index.html#system">What we do</a>
@@ -497,8 +497,8 @@
   <div class="cover-grid">
     <div>
       <p class="pre-heading">Stop manual data entry</p>
-      <h1>Create one connected workflow</h1>
-      <p class="body-text">How a contemporary fashion brand eliminated 85% of their manual data entry.</p>
+      <h1>Create one automated workflow</h1>
+      <p class="body-text">How a fashion brand eliminated 85% of their manual data entry.</p>
       <p class="body-text">One automated digital creation pipeline connecting PLM data and Visual Line Planning.</p>
     </div>
     <div class="stat-block">
