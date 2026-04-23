@@ -1743,6 +1743,32 @@ h1 .h1-light {
   background-position: center top;
 }
 
+.icard-thumb--stat {
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 24px 20px;
+  gap: 14px;
+}
+
+.icard-stat-num span {
+  display: inline-block;
+  background: #2563EB;
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 16px 20px;
+}
+
+.icard-stat-desc {
+  color: #fff;
+  padding: 0rem 0rem 1rem 0rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 /* Card body — dark text on sand */
 
 .icard-body {
